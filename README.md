@@ -39,7 +39,7 @@
 
 ```bash
 # Clone
-git clone https://github.com/vancolt/olx-scraper.git
+git clone https://github.com/vancolt/olx_scraper.git
 cd olx-scraper
 
 # Install
