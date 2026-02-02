@@ -1,0 +1,10 @@
+services:
+  olx-scraper:
+    build: .
+    ports:
+      - "691:3000"
+    environment:
+      - PORT=3000
+      - REQUEST_DELAY_MS=${REQUEST_DELAY_MS:-2000}
+      - PLAYWRIGHT_ENABLED=${PLAYWRIGHT_ENABLED:-true}
+    restart: unless-stopped
