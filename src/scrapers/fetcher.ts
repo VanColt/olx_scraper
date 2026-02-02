@@ -72,7 +72,8 @@ async function fetchWithPlaywright(url: string): Promise<string> {
   }
 
   const { chromium } = await import('playwright');
-  const browser = await chromium.launch({ headless: true });
+  const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH || undefined;
+  const browser = await chromium.launch({ headless: true, executablePath });
   try {
     const page = await browser.newPage();
     await page.setExtraHTTPHeaders({ 'Accept-Language': 'pl-PL,pl;q=0.9' });
