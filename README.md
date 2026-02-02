@@ -40,7 +40,7 @@
 ```bash
 # Clone
 git clone https://github.com/vancolt/olx_scraper.git
-cd olx-scraper
+cd olx_scraper
 
 # Install
 npm install
