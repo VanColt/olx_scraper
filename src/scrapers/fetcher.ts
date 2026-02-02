@@ -88,6 +88,13 @@ async function fetchWithPlaywright(url: string): Promise<string> {
     await page.setExtraHTTPHeaders({ 'Accept-Language': 'pl-PL,pl;q=0.9' });
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
     await page.waitForTimeout(2000);
+
+    // For JSON API URLs, browsers wrap the response in HTML (<pre> tag).
+    // Extract the inner text to get the raw JSON.
+    const pre = page.locator('body > pre');
+    if (await pre.count() > 0) {
+      return await pre.innerText();
+    }
     return await page.content();
   } finally {
     await browser.close();
