@@ -7,8 +7,16 @@ const router = Router();
 
 async function fetchProduct(id: string): Promise<ProductDetail | null> {
   const apiUrl = `https://www.olx.pl/api/v1/offers/${id}/`;
-  const json = await fetchPage(apiUrl);
-  const data = JSON.parse(json);
+  const json = await fetchPage(apiUrl, true);
+
+  let data: any;
+  try {
+    data = JSON.parse(json);
+  } catch {
+    console.error('OLX returned non-JSON response for product', id);
+    return null;
+  }
+
   if (!data?.data?.id) return null;
   return parseProductFromApi(data.data);
 }

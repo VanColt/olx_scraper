@@ -21,7 +21,7 @@ const client: AxiosInstance = wrapper(axios.create({
   validateStatus: (status) => status < 400,
 }));
 
-export async function fetchPage(url: string): Promise<string> {
+export async function fetchPage(url: string, expectJson = false): Promise<string> {
   const now = Date.now();
   const elapsed = now - lastRequestTime;
   const minDelay = getRandomDelay();
@@ -32,9 +32,16 @@ export async function fetchPage(url: string): Promise<string> {
 
   const userAgent = getRandomUserAgent();
 
-  try {
-    const response = await client.get(url, {
-      headers: {
+  const headers: Record<string, string> = expectJson
+    ? {
+        'User-Agent': userAgent,
+        'Accept': 'application/json',
+        'Accept-Language': 'pl-PL,pl;q=0.9,en-US;q=0.5,en;q=0.3',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Referer': 'https://www.olx.pl/',
+        'Connection': 'keep-alive',
+      }
+    : {
         'User-Agent': userAgent,
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
         'Accept-Language': 'pl-PL,pl;q=0.9,en-US;q=0.5,en;q=0.3',
@@ -47,16 +54,18 @@ export async function fetchPage(url: string): Promise<string> {
         'Sec-Fetch-Site': 'same-origin',
         'Sec-Fetch-User': '?1',
         'Cache-Control': 'max-age=0',
-      },
-    });
-    const html: string = response.data;
+      };
 
-    if (html.includes('captcha') || html.includes('cf-challenge')) {
+  try {
+    const response = await client.get(url, { headers });
+    const body: string = response.data;
+
+    if (body.includes('captcha') || body.includes('cf-challenge') || (expectJson && body.trimStart().startsWith('<'))) {
       console.log('Captcha/challenge detected, trying Playwright fallback...');
       return fetchWithPlaywright(url);
     }
 
-    return html;
+    return body;
   } catch (err: any) {
     if (err.response?.status === 403 || err.response?.status === 429) {
       console.log(`Got ${err.response.status}, trying Playwright fallback...`);
