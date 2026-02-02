@@ -22,7 +22,7 @@ const swaggerSpec = swaggerJsdoc({
         altText: 'OLX Scraper API',
       },
     },
-    servers: [{ url: `http://localhost:${port}` }],
+    servers: [], // populated dynamically per request
     tags: [
       { name: 'Search', description: 'Search OLX listings with filters and auto-pagination' },
       { name: 'Product', description: 'Retrieve full product details by ID' },
@@ -34,7 +34,15 @@ const swaggerSpec = swaggerJsdoc({
 });
 
 app.use('/olx/v1', express.static(path.join(__dirname, '..', 'public')));
-app.get('/olx/v1/docs.json', (_req, res) => res.json(swaggerSpec));
+app.get('/olx/v1/docs.json', (req, res) => {
+  const protocol = req.headers['x-forwarded-proto'] || req.protocol;
+  const host = req.headers['x-forwarded-host'] || req.get('host');
+  const spec = {
+    ...swaggerSpec,
+    servers: [{ url: `${protocol}://${host}`, description: 'Current' }],
+  };
+  res.json(spec);
+});
 
 app.use(
   '/olx/v1/docs',
