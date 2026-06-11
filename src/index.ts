@@ -9,7 +9,6 @@ import productsRouter from './routes/products';
 import categoriesRouter from './routes/categories';
 import locationsRouter from './routes/locations';
 import sellerRouter from './routes/seller';
-import messagingRouter from './routes/messaging';
 import { closeBrowser } from './scrapers/fetcher';
 
 const app = express();
@@ -61,7 +60,6 @@ app.use('/olx/v1/products', productsRouter);
 app.use('/olx/v1/categories', categoriesRouter);
 app.use('/olx/v1/locations', locationsRouter);
 app.use('/olx/v1/seller', sellerRouter);
-app.use('/olx/v1/messaging', messagingRouter);
 
 /**
  * @openapi

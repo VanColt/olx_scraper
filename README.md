@@ -15,7 +15,6 @@
   <a href="#endpoints">Endpoints</a>&nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#mcp-server">MCP Server</a>&nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#filters">Filters</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#messaging">Messaging</a>&nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#docker">Docker</a>&nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#disclaimer">Disclaimer</a>
 </p>
@@ -141,9 +140,6 @@ spawns it as a subprocess; there is nothing to host or deploy.
 ```bash
 # From a checkout
 npm run build   # then point your client at: node dist/mcp/index.js
-
-# Or once published to npm (the package's only bin is the MCP server)
-npx -y olx-scraper
 ```
 
 Config block for Claude Desktop (`claude_desktop_config.json`), Claude Code,
@@ -173,8 +169,6 @@ Cursor, or any MCP client:
 | `olx_resolve_location` | City/region name → OLX ids + coordinates |
 | `olx_list_categories` | Top-level categories with slugs |
 | `olx_find_category` | Search the full category tree (e.g. "gitary elektryczne" → id 4558) |
-| `olx_list_threads` | *(only when messaging is configured)* List conversations |
-| `olx_reply_thread` | *(only when messaging is configured)* Reply in a thread |
 
 Notes for MCP usage: env vars come from the client config (dotenv is not loaded),
 all logging goes to stderr, and failures are returned as `isError` results with
@@ -225,25 +219,6 @@ curl 'http://localhost:3000/olx/v1/products?ids=1078034151,1078063271'
 curl 'http://localhost:3000/olx/v1/seller/84422259/listings'
 ```
 
-## Messaging
-
-Messaging endpoints exist but are **dormant until configured** — they use the
-**official OLX Partner API v2**, which requires an approved application on
-[developer.olx.pl](https://developer.olx.pl):
-
-1. Register an app on the OLX Developer Portal and wait for manual verification.
-2. Complete the OAuth2 flow (`https://www.olx.pl/oauth/authorize`, scopes `v2 read write`).
-3. Set `OLX_PARTNER_ACCESS_TOKEN` (and optionally `OLX_CLIENT_ID` /
-   `OLX_CLIENT_SECRET` / `OLX_PARTNER_REFRESH_TOKEN` for auto-refresh).
-
-Once configured, `/olx/v1/messaging/threads*` routes and the `olx_list_threads` /
-`olx_reply_thread` MCP tools come alive.
-
-> **Hard limitation:** the official API can only **reply to existing threads**.
-> OLX does not expose any endpoint to initiate first contact on a listing, and
-> automating the website session to do so violates their ToS — this project
-> deliberately does not implement that.
-
 ## Docker
 
 ```bash
@@ -264,7 +239,6 @@ curl http://localhost:691/olx/v1/search/macbook
 | `SEARCH_CACHE_TTL_S` | `180` | Search result cache TTL (seconds) |
 | `PRODUCT_CACHE_TTL_S` | `1800` | Product detail cache TTL (seconds) |
 | `CATEGORIES_CACHE_TTL_S` | `86400` | Categories cache TTL (seconds) |
-| `OLX_PARTNER_ACCESS_TOKEN` | — | Enables messaging (see [Messaging](#messaging)) |
 
 ## Development
 
@@ -303,7 +277,6 @@ src/
     categories.ts       # Top-level categories + full-tree search
     locations.ts        # City/region name resolution
     seller.ts           # Seller listings
-    messaging.ts        # Partner API messaging (dormant until configured)
   services/
     olx.ts              # Orchestration: caching, filter resolution, drift alarms
   scrapers/
@@ -318,9 +291,6 @@ src/
     spec.ts             # OpenAPI spec: components generated from Zod schemas
   mcp/
     index.ts            # MCP server (stdio), olx_* tools
-  messaging/
-    partnerClient.ts    # Official OLX Partner API v2 client
-    types.ts            # Partner API types
   schemas/
     index.ts            # Zod schemas — single source of truth
   types/

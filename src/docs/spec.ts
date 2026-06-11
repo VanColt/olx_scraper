@@ -207,7 +207,6 @@ export function buildSwaggerSpec(): object {
         { name: 'Categories', description: 'Browse and search the full OLX category tree' },
         { name: 'Locations', description: 'Resolve city/region names to OLX location ids' },
         { name: 'Seller', description: 'Browse a seller\'s listings' },
-        { name: 'Messaging', description: 'OLX Partner API messaging (requires approved API access; reply-only)' },
         { name: 'Meta', description: 'Service health' },
       ],
       components: { schemas: buildComponents() },

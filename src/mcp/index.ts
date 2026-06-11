@@ -25,7 +25,6 @@ import {
   SearchResponseSchema,
   CategorySchema,
 } from '../schemas';
-import { OlxPartnerClient } from '../messaging/partnerClient';
 
 const server = new McpServer({
   name: 'olx-scraper',
@@ -237,46 +236,6 @@ server.registerTool(
       return ok({ categories });
     }),
 );
-
-// Messaging tools are only registered when Partner API credentials are
-// configured (OLX_PARTNER_ACCESS_TOKEN). The official API is reply-only:
-// it cannot initiate first contact on a listing.
-if (process.env.OLX_PARTNER_ACCESS_TOKEN) {
-  server.registerTool(
-    'olx_list_threads',
-    {
-      title: 'List OLX message threads',
-      description: 'List the authenticated user\'s OLX.pl conversation threads via the official Partner API.',
-      inputSchema: {
-        advert_id: z.number().int().optional().describe('Filter threads by ad id'),
-      },
-    },
-    async ({ advert_id }) =>
-      run(async () => {
-        const client = OlxPartnerClient.fromEnv()!;
-        return ok({ threads: await client.listThreads(advert_id ? { advert_id } : undefined) });
-      }),
-  );
-
-  server.registerTool(
-    'olx_reply_thread',
-    {
-      title: 'Reply in an OLX message thread',
-      description:
-        'Send a reply in an EXISTING OLX.pl conversation thread via the official Partner API. '
-        + 'Cannot start new conversations — OLX does not expose that capability.',
-      inputSchema: {
-        thread_id: z.number().int().describe('Thread id from olx_list_threads'),
-        text: z.string().min(1).describe('Message text to send'),
-      },
-    },
-    async ({ thread_id, text }) =>
-      run(async () => {
-        const client = OlxPartnerClient.fromEnv()!;
-        return ok({ sent: await client.sendMessage(thread_id, text) });
-      }),
-  );
-}
 
 async function main() {
   const transport = new StdioServerTransport();

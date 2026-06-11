@@ -6,12 +6,6 @@
   "bin": {
     "olx-mcp": "dist/mcp/index.js"
   },
-  "files": [
-    "dist",
-    "src",
-    "public",
-    "README.md"
-  ],
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
@@ -19,8 +13,7 @@
     "dev:mcp": "tsx src/mcp/index.ts",
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit",
-    "prepublishOnly": "npm run build"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
