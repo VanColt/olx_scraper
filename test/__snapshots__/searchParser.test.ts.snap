@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`parseSearchResults (prerendered fallback) > matches snapshot for the first result 1`] = `
+{
+  "categoryId": 2298,
+  "condition": "Używane",
+  "coordinates": {
+    "lat": 53.77602,
+    "lon": 20.47703,
+  },
+  "description": "Używany iPhone 13 w kolorze czarnym z wbudowaną pamięcią 128GB. Brak widocznych rys. Telefon sprzedaje z orginalnym pudełkiem oraz kablem",
+  "hasDelivery": true,
+  "id": "1078575247",
+  "isBusiness": false,
+  "isPromoted": true,
+  "location": "Warmińsko-mazurskie, Olsztyn",
+  "photos": [
+    "https://ireland.apollo.olxcdn.com:443/v1/files/tdvw4ssrnt601-PL/image",
+    "https://ireland.apollo.olxcdn.com:443/v1/files/zjnycnvxu5ej1-PL/image",
+  ],
+  "postedAt": "2026-06-08T22:00:18+02:00",
+  "price": {
+    "currency": "PLN",
+    "display": "900 zł",
+    "negotiable": true,
+    "previousValue": null,
+    "value": 900,
+  },
+  "refreshedAt": "2026-06-08T22:03:14+02:00",
+  "seller": {
+    "id": "43887251",
+    "memberSince": "2016-06-25T12:54:24+02:00",
+    "name": "Rafał",
+  },
+  "title": "Czarny iphone 13 128gb bez rys",
+  "url": "https://www.olx.pl/d/oferta/czarny-iphone-13-128gb-bez-rys-CID99-ID1aZAGX.html",
+}
+`;

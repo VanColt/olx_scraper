@@ -1,0 +1,316 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`parseProductFromApi > matches snapshot 1`] = `
+{
+  "categoryId": 3102,
+  "condition": "new",
+  "coordinates": {
+    "lat": 50.06026,
+    "lon": 19.9396,
+  },
+  "description": "Jesteśmy Dystrybutorem Apple i kompleksowo wyposażamy firmy w sprzęt IT.
+
+Możesz zakupić u Nas także sprzęt w promocyjnych, obniżonych cenach na portalu OLX.
+
+Przedmiotem tego ogłoszenia jest:
+
+
+
+Apple MacBook Pro 16,2-cali / M3 Pro / 12CPU / 18GPU / 18GB RAM / 512GB SSD / Matryca Liquid Retina XDR / Touch-ID / Multi-Touch / 3xThunderBolt / USB-C / HDMI / Czytnik kart SD / Kolor Space Black
+
++ Pakiet Wydłużonej Gwarancji CARE 24-msc o wartości 1299zł!
+
++ Dedykowane etui ochronne Hard-Case Thin o wartości 149zł!
+
+
+
+CENA PRODUCENTA: 13,999zł !
+
+NASZA CENA: 7,490zł brutto / 6,089zł netto.
+
+FAKTURA VAT23%.
+
+
+
+U Nas kupisz go dużo taniej i to wraz z dodatkową 2-letnią gwarancją i dedykowanym etui ochronnym Hard-Case w cenie!
+
+Jeśli chcesz, możesz kupić go na całkowicie darmowe Raty PayU 0%, a całość kwoty rozbić aż do 20 całkowicie darmowych rat.
+
+
+
+.
+
+
+
+Flagowy model MacBooka z 18GB RAM i ultra mocnym 18-rdzeniowym procesorem GPU M3 Pro.
+
+Przepiękny, ciemny - czarny kolor Space Black.
+
+Oficjalna dystrybucja Apple.
+
+
+
+Stan nówka!
+
+Zapakowany w fabrycznym, oryginalnym opakowaniu producenta wraz z kompletem oryginalnych akcesoriów.
+
+MacBook jest jak nowy, w salonowym, perfekcyjnym stanie.
+
+Pełnowartościowy MacBook bez żadnych wad.
+
+
+
+Idealna okazja do nabycia flagowego modelu za praktycznie połowę ceny salonowej!
+
+Unikatowy zestaw z rozszerzoną, wydłużoną ochroną GW Care na 24msc.
+
+Dodatkowy 2-letni pakiet ochronny o wartości 1299zł w cenie.
+
+
+
+Wersja z uniwersalną klawiaturą QWERTY.
+
+Po wyjęciu gotowy do aktywacji przez Użytkownika.
+
+Po uruchomieniu fabryczny system operacyjny MacOS w języku polskim.
+
+
+
+JEŚLI SZUKASZ MOCNEGO I PEWNEGO SPRZĘTU NA LATA, TEN BĘDZIE STRZAŁEM W DZIESIĄTKĘ!
+
+Dodatkowo otrzymasz aż 2-krotnie dłuższą gwarancję, niż standardowo i dedykowane etui ochronne Hard-Case Thin!
+
+Macbook idealny także na prezent!
+
+
+
+DLA PORÓWNANIA:
+
+= Dokładnie taka sama specyfikacja wynosiła w Apple 13,999zł i dodatkowo 1,299zł za podobny 2-letni pakiet ochrony GW), czyli ponad 2 razy więcej więcej, niż w naszej ofercie! U Nas w zestawie otrzymujesz także 2-letni zestaw ochronny o wartości 1299zł i przezroczyste etui ochronne Hard-Case Thin o wartości 149zł, które idealnie ochroni Twój sprzęt podczas użytkowania. Co więcej - zrobi to w stylowej oprawie!
+
+= Dodatkowa 24 miesięczna ochrona gwarancyjna - przy sprzęcie o tej wartości ma ogromne znacznie, dając jednocześnie niewspółmierny komfort i swobodę użytkowania przez długie lata.
+
+= W tej wersji w komplecie z komputerem jest też oryginalny zasilacz Apple MagSafe 140W. W porównaniu do wersji M5 Pro, która sprzedawana jest bez zasilacza to dodatkowa oszczędność rzędu 499zł. Modele M5 niestety nie posiadają już w zestawie ładowarki, co jest zdecydowaną wadą i ujmą.
+
+= Apple MacBook Pro 16 z procesorem M3 Pro oferuje najwyższą wydajność, skierowaną do wymagających zadań, takich jak edycja wideo czy programowanie. To potężny laptop przeznaczony dla entuzjastów firmy Apple i prawdziwych profesjonalistów. Wyposażony w 16,2-calowy wyświetlacz Retina Liquid XDR 120Hz, zapewnia wyjątkową jakość obrazu i żywe kolory. Procesor M3 Pro z aż 18-rdzeniami GPU oferuje najwyższą wydajność, skierowaną do wymagających zadań, takich jak edycja wideo czy zaawansowane prace programistyczne. Zunifikowane 18GB pamięci RAM pozwala na ultra płynne wykonywanie wielu procesów jednocześnie, a szybki dysk SSD o pojemności 512GB zapewnia komfort i swobodę użytkowania.
+
+= To nowoczesne narzędzie dla kreatywnych i wymagających użytkowników. Jego wydajność sprosta naprawdę każdemu zadaniu. Komputer cechuje się rekordowym czasem pracy na baterii aż do 24 godzin, zaawansowanym systemem chłodzenia i świetną jakością dźwięku.
+
+= Idealna okazja do nabycia go w okazyjnej cenie! Niezawodny sprzęt na długie lata w tym przypadku z dodatkową, wydłużoną ochroną GW na 24 miesiące!
+
+
+
+PARAMETRY TECHNICZNE:
+
+= 16,2 calowa matryca Liqiud Retina XDR z Promotion 120Hz
+
+= Procesor Apple M3 Pro 18GPU / 12CPU
+
+= 18GB zunifikowanej pamięci RAM
+
+= Ultra szybki dysk SSD 512GB
+
+= Wydajna bateria z czasem pracy do 24 godzin
+
+= Podświetlana klawiatura - Układ QWERTY
+
+= Ładowarka ze złączem magnetycznym MagSafe
+
+= 3 Porty USB-C / Thunderbolt
+
+= Port HDMI
+
+= Czytnik kart SD
+
+= Kolor Space Back
+
+= Rozszerzona ochrona GW 24 miesiące!
+
+
+
+W ZESTAWIE:
+
+= MacBook
+
+= Oryginalny zasilacz Apple 140W
+
+= Kabel zasilający Apple MagSafe
+
+= Instrukcje i broszury producenta
+
+= Oryginalne pudełko
+
+= Dokument zakupu
+
+= Polisa gwarancyjna
+
+= Dodatkowe etui ochronne Hard-Case
+
+
+
+INTERESUJE CIĘ ZAKUP W DARMOWYCH RATACH 0%?
+
+ŻADEN PROBLEM!
+
+
+
+JEŻELI INTERESUJE CIĘ SPRZĘT O INNYCH PARAMETRACH?
+
+SKONTAKTUJ SIĘ Z NAMI!
+
+
+
+Posiadamy w ofercie wszystkie modele komputerów Apple:
+
+Posiadamy w ofercie wszystkie modele komputerów Apple:
+
+- MacBook Air 13 / Intel / i3 / i5 / i7 / 128GB SSD / 256GB SSD / 512GB SSD
+
+- MacBook Neo / 256GB / 512GB / 8GBB / Touch ID / Wszystkie wersje!
+
+- MacBook Air 13 M1 / 8GB RAM / 16GB RAM / 128GB SSD / 256GB SSD / 512GB SSD
+
+- MacBook Air 13 M2 / 8GB RAM / 16GB RAM / 256GB SSD / 512GB SSD
+
+- MacBook Air 13 M3 / 16GB RAM / 24GB RAM / 256GB SSD / 512GB SSD / 1TB
+
+- MacBook Air 13 M4 / 16GB RAM / 24GB RAM / 256GB SSD / 512GB SSD / 1TB
+
+- MacBook Air 13 M5 / 16GB RAM / 24GB RAM / 256GB SSD / 512GB SSD / 1TB
+
+- MacBook Air 15 M2 / 8GB RAM / 16GB RAM / 256GB SSD / 512GB SSD / 1TB
+
+- MacBook Air 15 M3 / 16GB RAM / 24GB RAM / 256GB SSD / 512GB SSD / 1TB
+
+- MacBook Air 15 M4 / 16GB RAM / 24GB RAM / 256GB SSD / 512GB SSD / 1TB
+
+- MacBook Air 15 M5 / 16GB RAM / 24GB RAM / 32GB RAM / 256GB SSD / 512GB SSD / 1TB / 2TB /
+
+- MacBook Air 13 / 15 / 13,6 / 15,3 / Kolory Sky Blue / Silver / Midnight / Starlight / Space Gray
+
+- MacBook Pro 13 Intel / M1 / M2 / 8GB RAM / 16GB RAM / 32GB RAM / 256GB SSD / 512GB SSD / 1TB SSD
+
+- MacBook Pro 14 M1 / M1 Pro / M1 Pro Max / 16GB RAM / 32GB RAM / 512GB SSD / 1TB SSD
+
+- MacBook Pro 14 M2 / M2 Pro / M2 Pro Max / 16GB RAM / 24GB RAM / 32GB RAM / 512GB SSD / 1TB SSD
+
+- MacBook Pro 14 M3 / M3 Pro / M3 Pro Max / 8GB RAM / 18GB RAM / 36GB RAM / 512GB SSD / 1TB SSD
+
+- MacBook Pro 14 M4 / M4 Pro / M4 Pro Max / 24GB RAM / 36GB RAM / 46GB RAM / 512GB SSD / 1TB SSD
+
+- MacBook Pro 14 M5 / 16GB RAM / 24GB RAM / 36GB RAM / 46GB RAM / 512GB SSD / 1TB SSD
+
+- MacBook Pro 16 / Intel i7 / i9 / 16GB RAM / 32GB RAM / 64GB RAM / 512GB SSD / 1TB SSD / 2TB SSD
+
+- MacBook Pro 16 M1 Pro / M1 Pro Max / 16GB RAM / 32GB RAM / 512GB SSD / 1TB SSD
+
+- MacBook Pro 16 M2 Pro / M2 Pro Max / 16GB RAM / 32GB RAM / 512GB SSD / 1TB SSD
+
+- MacBook Pro 16 M3 Pro / M3 Pro Max / 18GB RAM / 36GB RAM / 512GB SSD / 1TB SSD
+
+- MacBook Pro 16 M4 Pro / M4 Pro Max / 24GB RAM / 48GB RAM / 64GB / 512GB SSD / 1TB SSD
+
+- MacBook Pro 16 M5 Pro / M5 Max / 24GB RAM / 48GB RAM / 64GB / 1TB SSD / 2TB SSD
+
+- Apple iMac 21,5 / 27 /24 / i3 / i5 / i7 / i9 / M1 / M3 / M4 / Max / Xenon / iMac Pro
+
+- Apple Mac Mini / M2 / M2 Pro / M4 / M4 Pro / Max / Studio / Apple Retina Display XDR / Pro / Ultra
+
+- Apple iPhone 17 Pro 256GB 512GB 1TB / iPhone Air 11 12 SE 13 14 15 16 16 Pro Max 17 17 Pro 17 Pro Max Plus 64GB 128GB 256GB 512GB 1TB 2TB / Cosmic Orange / Starlight Tytan / Space Black / Silver / Midnight
+
+
+
++
+
++ +
+
++ + +
+
++ + + +
+
+
+
+KUP U NAS - PEWNEGO SPRZEDAWCY!
+
+DO ZAKUPU JEST PARAGON FISKALNY LUB FAKTURA ZAKUPOWA.
+
+
+
+DLA PRZEDSIĘBIORCÓW TO DODATKOWY ATUT!
+
+PEŁNA FAKTURA VAT23%.
+
+Cena brutto: 7,490zł / 6,089zł netto!
+
+
+
+NIE CZEKAJ, ABY UBIEGŁ CIĘ KTOŚ INNY,
+
+KUP TERAZ, A TWOJE ZAKUPY BĘDĄ U CIEBIE JUŻ JUTRO!
+
+
+
++ + + +
+
++ + +
+
++ +
+
++
+
+
+
+= = = = = = = = = = = = =
+
+- MASZ JAKIEŚ PYTANIA ?
+
+- NAPISZ DO NAS LUB ZADZWOŃ !
+
+5 I 5 - 7 2 O - 1 9 O",
+  "id": "1078063271",
+  "isBusiness": true,
+  "location": "Kraków, Małopolskie",
+  "parameters": {
+    "Model": "MacBook Pro (M3 / Pro / Max)",
+    "Przekątna ekranu": "16-16,9"",
+    "Rodzaj karty graficznej": "Zintegrowana",
+    "Seria procesora": "Apple M3 / Pro / Max",
+    "Stan": "Nowe",
+    "System operacyjny": "Mac OS",
+    "Typ dysku twardego": "SSD",
+    "Wielkość dysku": "257GB - 512GB",
+    "Wielkość pamięci RAM": "24GB",
+  },
+  "photos": [
+    "https://ireland.apollo.olxcdn.com:443/v1/files/b8wy8b310npk2-PL/image",
+    "https://ireland.apollo.olxcdn.com:443/v1/files/m8pqh7z99t6e2-PL/image",
+    "https://ireland.apollo.olxcdn.com:443/v1/files/5j8uprdgq8201-PL/image",
+    "https://ireland.apollo.olxcdn.com:443/v1/files/fgc5n75vl4n9-PL/image",
+    "https://ireland.apollo.olxcdn.com:443/v1/files/5gu9n7swxdfc-PL/image",
+    "https://ireland.apollo.olxcdn.com:443/v1/files/d1yy3yyii5ma-PL/image",
+    "https://ireland.apollo.olxcdn.com:443/v1/files/6cf06z950ou32-PL/image",
+    "https://ireland.apollo.olxcdn.com:443/v1/files/vehszirdo7ba3-PL/image",
+    "https://ireland.apollo.olxcdn.com:443/v1/files/1o5rlqx4qa141-PL/image",
+    "https://ireland.apollo.olxcdn.com:443/v1/files/jtzu16aa99oh-PL/image",
+    "https://ireland.apollo.olxcdn.com:443/v1/files/yc8lhkfuhwfw-PL/image",
+    "https://ireland.apollo.olxcdn.com:443/v1/files/mnrha7oxcgo03-PL/image",
+  ],
+  "postedAt": "2026-06-05T19:08:00+02:00",
+  "price": {
+    "currency": "PLN",
+    "display": "7 490 zł",
+    "negotiable": true,
+    "previousValue": null,
+    "value": 7490,
+  },
+  "refreshedAt": "2026-06-05T19:10:23+02:00",
+  "seller": {
+    "id": "1460740088",
+    "memberSince": "2023-02-20T16:40:06+01:00",
+    "name": "iMobi",
+  },
+  "title": "I. NOWY Apple MacBook Pro 16 M3 PRO 18GB RAM 512GB Black +DODATKI GW-2LATA! FV23%",
+  "url": "https://www.olx.pl/d/oferta/i-nowy-apple-macbook-pro-16-m3-pro-18gb-ram-512gb-black-dodatki-gw-2lata-fv23-CID99-ID1aXrwh.html",
+  "validTo": "2026-07-05T19:08:01+02:00",
+}
+`;

@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
-import { fetchPage } from '../scrapers/fetcher';
-import { parseSearchResults } from '../scrapers/searchParser';
-import { SearchResult } from '../types';
+import { searchListings } from '../services/olx';
+import { SearchQuerySchema } from '../schemas';
+import { sendError } from '../utils/errors';
 
 const router = Router();
 
@@ -11,6 +11,13 @@ const router = Router();
  *   get:
  *     tags: [Search]
  *     summary: Search OLX listings
+ *     description: >
+ *       Searches OLX.pl via its offers API with auto-pagination. Results
+ *       include a truncated description (~300 chars), the first photos,
+ *       seller info and coordinates, so listings can be classified without
+ *       fetching each product. Prices are structured objects (numeric value,
+ *       currency, display string, negotiable flag) and dates ISO 8601.
+ *       Promoted ads are always pinned first by OLX regardless of sort.
  *     parameters:
  *       - in: path
  *         name: query
@@ -23,7 +30,22 @@ const router = Router();
  *         schema:
  *           type: integer
  *           default: 40
- *         description: Max results to return (auto-paginates)
+ *           maximum: 200
+ *         description: Max results to return (auto-paginates, capped at 200)
+ *       - in: query
+ *         name: offset
+ *         schema:
+ *           type: integer
+ *           default: 0
+ *           maximum: 960
+ *         description: Skip this many results (paging beyond limit; OLX caps the window at 1000)
+ *       - in: query
+ *         name: sort
+ *         schema:
+ *           type: string
+ *           enum: [relevance, price_asc, price_desc, newest]
+ *           default: relevance
+ *         description: Sort order (promoted ads stay pinned first)
  *       - in: query
  *         name: min_price
  *         schema:
@@ -38,73 +60,71 @@ const router = Router();
  *         name: has_delivery
  *         schema:
  *           type: boolean
- *         description: Only listings with delivery
+ *         description: Only listings with OLX delivery
  *       - in: query
  *         name: condition
  *         schema:
  *           type: string
- *           enum: [new, used]
+ *           enum: [new, used, damaged]
  *         description: Item condition
- *       - in: query
- *         name: negotiable
- *         schema:
- *           type: boolean
- *         description: Only listings with negotiable price
  *       - in: query
  *         name: category
  *         schema:
  *           type: string
- *         description: Category slug (e.g. elektronika)
+ *         description: Numeric category id (e.g. 99 = Elektronika, includes subcategories) or category slug (e.g. elektronika)
+ *       - in: query
+ *         name: city
+ *         schema:
+ *           type: string
+ *         description: City name, slug or numeric id (e.g. Kraków) — names are resolved automatically
+ *       - in: query
+ *         name: distance
+ *         schema:
+ *           type: integer
+ *           maximum: 100
+ *         description: Search radius in km around the city (requires city)
+ *       - in: query
+ *         name: region
+ *         schema:
+ *           type: string
+ *         description: Region/voivodeship name, slug or id; ignored when city is set
  *     responses:
  *       200:
- *         description: Search results
+ *         description: Search results (see SearchResponse schema — totalCount is capped at 1000 by OLX, visibleTotalCount is the real total, source shows which extraction path was used)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/SearchResponse'
+ *       400:
+ *         description: Invalid query parameters (Zod issues included)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       502:
+ *         description: OLX response no longer matches the expected format
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       503:
+ *         description: OLX blocked the request (retryable)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 router.get('/:query', async (req: Request, res: Response) => {
+  const parsed = SearchQuerySchema.safeParse(req.query);
+  if (!parsed.success) {
+    return res.status(400).json({ error: 'Invalid query parameters', issues: parsed.error.issues });
+  }
+
   try {
-    const { query } = req.params;
-    const limit = Math.max(1, parseInt(req.query.limit as string, 10) || 40);
-    const minPrice = req.query.min_price as string | undefined;
-    const maxPrice = req.query.max_price as string | undefined;
-    const hasDelivery = req.query.has_delivery as string | undefined;
-    const condition = req.query.condition as string | undefined;
-    const category = req.query.category as string | undefined;
-    const slug = query.trim().replace(/\s+/g, '-');
-    const basePath = category
-      ? `https://www.olx.pl/${category}/q-${slug}/`
-      : `https://www.olx.pl/oferty/q-${slug}/`;
-
-    // Build OLX filter params
-    const filters: string[] = [];
-    if (minPrice) filters.push(`search[filter_float_price:from]=${minPrice}`);
-    if (maxPrice) filters.push(`search[filter_float_price:to]=${maxPrice}`);
-    if (hasDelivery === 'true') filters.push('search[filter_enum_delivery:0]=courier');
-    if (condition === 'new' || condition === 'used') filters.push(`search[filter_enum_state:0]=${condition}`);
-
-    const collected: SearchResult[] = [];
-    let page = 1;
-    let totalCount = 0;
-
-    while (collected.length < limit) {
-      const params = [...filters];
-      if (page > 1) params.push(`page=${page}`);
-      const qs = params.length ? '?' + params.join('&') : '';
-      const url = basePath + qs;
-
-      const html = await fetchPage(url);
-      const parsed = parseSearchResults(html, page);
-
-      if (page === 1) totalCount = parsed.totalCount;
-      if (parsed.results.length === 0) break;
-
-      collected.push(...parsed.results);
-      page++;
-    }
-
-    const results = collected.slice(0, limit);
-    res.json({ totalCount, limit, results });
-  } catch (err: any) {
-    console.error('Search error:', err.message);
-    res.status(500).json({ error: 'Failed to fetch search results', details: err.message });
+    const response = await searchListings(req.params.query, parsed.data);
+    res.json(response);
+  } catch (err) {
+    sendError(res, err, 'search results');
   }
 });
 

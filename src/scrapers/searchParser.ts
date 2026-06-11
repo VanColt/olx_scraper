@@ -1,18 +1,28 @@
 import * as cheerio from 'cheerio';
-import { SearchResult, SearchResponse } from '../types';
+import { SearchResult } from '../schemas';
+import { mapPrerenderedAd } from './mappers';
 
-export function parseSearchResults(html: string, page: number): SearchResponse {
-  // Try JSON-based extraction first (has real image URLs, not lazy-load placeholders)
-  const jsonResult = parseFromJson(html, page);
+export interface ParsedSearchPage {
+  totalCount: number;
+  totalPages: number | null;
+  source: 'prerendered' | 'html';
+  results: SearchResult[];
+}
+
+/**
+ * Fallback search parsing for HTML pages (used when the offers JSON API is
+ * unavailable or for slug-category searches): prerendered state first, then
+ * DOM scraping as a last resort.
+ */
+export function parseSearchResults(html: string): ParsedSearchPage {
+  const jsonResult = parseFromPrerenderedState(html);
   if (jsonResult && jsonResult.results.length > 0) {
     return jsonResult;
   }
-
-  // Fallback to HTML parsing
-  return parseFromHtml(html, page);
+  return parseFromHtml(html);
 }
 
-export function extractListingData(html: string): any[] | null {
+function extractPrerenderedListing(html: string): any | null {
   const marker = 'window.__PRERENDERED_STATE__= "';
   const idx = html.indexOf(marker);
   if (idx === -1) return null;
@@ -28,67 +38,29 @@ export function extractListingData(html: string): any[] | null {
   try {
     const inner = JSON.parse(raw);
     const data = typeof inner === 'string' ? JSON.parse(inner) : inner;
-    return data?.listing?.listing?.ads || data?.listing?.ads || null;
+    return data?.listing?.listing || null;
   } catch {
     return null;
   }
 }
 
-function extractTotalCount(html: string): number {
-  const marker = 'window.__PRERENDERED_STATE__= "';
-  const idx = html.indexOf(marker);
-  if (idx === -1) return 0;
+function parseFromPrerenderedState(html: string): ParsedSearchPage | null {
+  const listing = extractPrerenderedListing(html);
+  if (!listing || !Array.isArray(listing.ads)) return null;
 
-  const start = idx + marker.length - 1;
-  const endPattern = '";\n';
-  let end = html.indexOf(endPattern, start);
-  if (end === -1) end = html.indexOf('";', start);
-  if (end === -1) return 0;
+  const results: SearchResult[] = listing.ads
+    .filter((ad: any) => ad.id)
+    .map(mapPrerenderedAd);
 
-  const raw = html.substring(start, end + 1);
-
-  try {
-    const inner = JSON.parse(raw);
-    const data = typeof inner === 'string' ? JSON.parse(inner) : inner;
-    return data?.listing?.listing?.totalCount || data?.listing?.totalCount || 0;
-  } catch {
-    return 0;
-  }
+  return {
+    totalCount: listing.totalElements ?? 0,
+    totalPages: listing.totalPages ?? null,
+    source: 'prerendered',
+    results,
+  };
 }
 
-function parseFromJson(html: string, page: number): SearchResponse | null {
-  const ads = extractListingData(html);
-  if (!ads) return null;
-
-  const totalCount = extractTotalCount(html);
-  const results: SearchResult[] = [];
-
-  for (const ad of ads) {
-    if (ad.isHighlighted && !ad.id) continue; // skip promoted banners
-
-    const locationParts: string[] = [];
-    if (ad.location?.city?.name) locationParts.push(ad.location.city.name);
-    if (ad.location?.region?.name) locationParts.push(ad.location.region.name);
-
-    const hasDelivery = Array.isArray(ad.delivery)
-      ? ad.delivery.some((d: any) => d?.active)
-      : !!(ad.delivery?.active || ad.safedeal?.active);
-
-    results.push({
-      id: String(ad.id || ''),
-      title: ad.title || '',
-      price: ad.price?.displayValue || ad.price?.regularPrice?.displayValue || '',
-      location: locationParts.join(', '),
-      date: ad.lastRefreshTime || ad.createdTime || '',
-      hasDelivery,
-      url: ad.url ? (ad.url.startsWith('http') ? ad.url : `https://www.olx.pl${ad.url}`) : '',
-    });
-  }
-
-  return { totalCount, page, results };
-}
-
-function parseFromHtml(html: string, page: number): SearchResponse {
+function parseFromHtml(html: string): ParsedSearchPage {
   const $ = cheerio.load(html);
   $('style').remove();
   const results: SearchResult[] = [];
@@ -106,21 +78,41 @@ function parseFromHtml(html: string, page: number): SearchResponse {
 
     const title = card.find('[data-testid="ad-card-title"] h4, [data-testid="ad-card-title"] h6').first().text().trim();
     const priceEl = card.find('[data-testid="ad-price"]').first();
-    const price = priceEl.contents().filter((_, node) => node.type === 'text').text().trim() || priceEl.text().trim();
+    const priceText = priceEl.contents().filter((_, node) => node.type === 'text').text().trim() || priceEl.text().trim();
+    const priceValue = parseFloat(priceText.replace(/[^\d,.]/g, '').replace(/\s/g, '').replace(',', '.'));
 
     const locationDate = card.find('[data-testid="location-date"]').text().trim();
-    const parts = locationDate.split(' - ');
-    const location = parts[0]?.trim() || '';
-    const date = parts.slice(1).join(' - ').trim();
+    const location = locationDate.split(' - ')[0]?.trim() || '';
 
     const hasDelivery = card.find('[data-testid="card-delivery-badge"], [data-testid="free-delivery-tag"]').length > 0;
 
     if (id || title) {
-      results.push({ id, title, price, location, date, hasDelivery, url });
+      results.push({
+        id,
+        title,
+        description: '',
+        price: {
+          value: Number.isFinite(priceValue) ? priceValue : null,
+          currency: 'PLN',
+          display: priceText,
+          negotiable: priceText.toLowerCase().includes('negocj'),
+          previousValue: null,
+        },
+        location,
+        coordinates: null,
+        condition: null,
+        isPromoted: false,
+        isBusiness: false,
+        categoryId: null,
+        hasDelivery,
+        photos: [],
+        seller: { id: null, name: '', memberSince: '' },
+        postedAt: null,
+        refreshedAt: null,
+        url,
+      });
     }
   });
 
-  return { totalCount, page, results };
+  return { totalCount, totalPages: null, source: 'html', results };
 }
-
-

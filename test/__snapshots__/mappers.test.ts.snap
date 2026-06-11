@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`mapApiAd > matches snapshot for the first ad 1`] = `
+{
+  "categoryId": 3102,
+  "condition": "used",
+  "coordinates": {
+    "lat": 52.23725,
+    "lon": 20.96608,
+  },
+  "description": "MacBook 15 Używany w bardzo dobrym stanie. Wszystkie parametry są podane na zdjęciach i głównym opisie. Można na miejscu oczywiście sprawdzić. Jeśli masz jakies pytania służe pomocą.",
+  "hasDelivery": true,
+  "id": "1070085524",
+  "isBusiness": false,
+  "isPromoted": true,
+  "location": "Warszawa, Mazowieckie",
+  "photos": [
+    "https://ireland.apollo.olxcdn.com:443/v1/files/dbh19qubve7s1-PL/image",
+    "https://ireland.apollo.olxcdn.com:443/v1/files/sngjla8c2r1d2-PL/image",
+  ],
+  "postedAt": "2026-04-28T17:52:53+02:00",
+  "price": {
+    "currency": "PLN",
+    "display": "3 400 zł",
+    "negotiable": false,
+    "previousValue": null,
+    "value": 3400,
+  },
+  "refreshedAt": "2026-05-28T21:37:15+02:00",
+  "seller": {
+    "id": "84422259",
+    "memberSince": "2018-02-06T17:59:31+01:00",
+    "name": "Jacek",
+  },
+  "title": "MacBook 15 16GB 256GB SSD M3 2024 93% Bateri",
+  "url": "https://www.olx.pl/d/oferta/macbook-15-16gb-256gb-ssd-m3-2024-93-bateri-CID99-ID1apY7V.html",
+}
+`;

@@ -1,0 +1,2089 @@
+{
+ "data": [
+  {
+   "id": 1070085524,
+   "url": "https://www.olx.pl/d/oferta/macbook-15-16gb-256gb-ssd-m3-2024-93-bateri-CID99-ID1apY7V.html",
+   "title": "MacBook 15 16GB 256GB SSD M3 2024 93% Bateri",
+   "last_refresh_time": "2026-05-28T21:37:15+02:00",
+   "created_time": "2026-04-28T17:52:53+02:00",
+   "valid_to_time": "2026-06-27T21:37:14+02:00",
+   "pushup_time": null,
+   "description": "MacBook 15<br />\nUżywany w bardzo dobrym stanie. <br />\nWszystkie parametry są podane na zdjęciach i głównym opisie. <br />\nMożna na miejscu oczywiście sprawdzić. <br />\nJeśli masz jakies pytania służe pomocą.",
+   "promotion": {
+    "highlighted": false,
+    "urgent": false,
+    "top_ad": true,
+    "options": [
+     "promoted_ad_30"
+    ],
+    "b2c_ad_page": false,
+    "premium_ad_page": false
+   },
+   "params": [
+    {
+     "key": "price",
+     "name": "Cena",
+     "type": "price",
+     "value": {
+      "value": 3400,
+      "type": "price",
+      "arranged": false,
+      "budget": false,
+      "currency": "PLN",
+      "negotiable": false,
+      "converted_value": null,
+      "previous_value": null,
+      "converted_previous_value": null,
+      "converted_currency": null,
+      "label": "3 400 zł",
+      "previous_label": null
+     }
+    },
+    {
+     "key": "state",
+     "name": "Stan",
+     "type": "select",
+     "value": {
+      "key": "used",
+      "label": "Używane"
+     }
+    },
+    {
+     "key": "screendiagonal_laptops",
+     "name": "Przekątna ekranu",
+     "type": "select",
+     "value": {
+      "key": "13-13-9",
+      "label": "13-13,9\""
+     }
+    },
+    {
+     "key": "laptops_series",
+     "name": "Model",
+     "type": "select",
+     "value": {
+      "key": "macbook-air-m3-m4",
+      "label": "MacBook Air (M3 / M4)"
+     }
+    },
+    {
+     "key": "operatingsystem_laptops",
+     "name": "System operacyjny",
+     "type": "select",
+     "value": {
+      "key": "mac-os",
+      "label": "Mac OS"
+     }
+    },
+    {
+     "key": "ramsize_laptops",
+     "name": "Wielkość pamięci RAM",
+     "type": "select",
+     "value": {
+      "key": "16gb",
+      "label": "16GB"
+     }
+    },
+    {
+     "key": "harddisktype_laptops",
+     "name": "Typ dysku twardego",
+     "type": "select",
+     "value": {
+      "key": "ssd",
+      "label": "SSD"
+     }
+    },
+    {
+     "key": "disksize_laptops",
+     "name": "Wielkość dysku",
+     "type": "select",
+     "value": {
+      "key": "129gb-256gb",
+      "label": "129GB - 256GB"
+     }
+    }
+   ],
+   "key_params": [],
+   "business": false,
+   "user": {
+    "id": 84422259,
+    "created": "2018-02-06T17:59:31+01:00",
+    "other_ads_enabled": true,
+    "name": "Jacek",
+    "logo": null,
+    "logo_ad_page": null,
+    "social_network_account_type": null,
+    "photo": null,
+    "banner_mobile": "",
+    "banner_desktop": "",
+    "company_name": "",
+    "about": "",
+    "b2c_business_page": false,
+    "is_online": false,
+    "last_seen": "2026-06-07T15:53:38+02:00",
+    "seller_type": null,
+    "uuid": "94e548d2-25de-4632-a22c-7c079c371e06"
+   },
+   "status": "active",
+   "contact": {
+    "name": "Jacek",
+    "phone": true,
+    "chat": true,
+    "negotiation": false,
+    "courier": false
+   },
+   "map": {
+    "zoom": 13,
+    "lat": 52.23725,
+    "lon": 20.96608,
+    "radius": 7,
+    "show_detailed": false
+   },
+   "location": {
+    "city": {
+     "id": 17871,
+     "name": "Warszawa",
+     "normalized_name": "warszawa"
+    },
+    "district": {
+     "id": 359,
+     "name": "Wola"
+    },
+    "region": {
+     "id": 2,
+     "name": "Mazowieckie",
+     "normalized_name": "mazowieckie"
+    }
+   },
+   "photos": [
+    {
+     "id": 10930010513,
+     "filename": "dbh19qubve7s1-PL",
+     "rotation": 0,
+     "width": 1736,
+     "height": 1736,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/dbh19qubve7s1-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 10930010514,
+     "filename": "sngjla8c2r1d2-PL",
+     "rotation": 0,
+     "width": 1736,
+     "height": 1736,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/sngjla8c2r1d2-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 10930010515,
+     "filename": "dgsh6qj505x72-PL",
+     "rotation": 0,
+     "width": 1736,
+     "height": 1736,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/dgsh6qj505x72-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 10930010516,
+     "filename": "vb7ma9sauxi51-PL",
+     "rotation": 0,
+     "width": 1736,
+     "height": 1736,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/vb7ma9sauxi51-PL/image;s={width}x{height}"
+    }
+   ],
+   "partner": null,
+   "category": {
+    "id": 3102,
+    "type": "electronics"
+   },
+   "delivery": {
+    "rock": {
+     "offer_id": "4a2c5d22-5973-4f37-9bb8-a825da129801",
+     "active": true,
+     "mode": "BuyWithDelivery"
+    }
+   },
+   "safedeal": {
+    "weight": 0,
+    "weight_grams": 0,
+    "status": "unactive",
+    "safedeal_blocked": false,
+    "allowed_quantity": []
+   },
+   "shop": {
+    "subdomain": null
+   },
+   "isGpsrAvailable": true,
+   "offer_type": "offer",
+   "protect_phone": false
+  },
+  {
+   "id": 1078063271,
+   "url": "https://www.olx.pl/d/oferta/i-nowy-apple-macbook-pro-16-m3-pro-18gb-ram-512gb-black-dodatki-gw-2lata-fv23-CID99-ID1aXrwh.html",
+   "title": "I. NOWY Apple MacBook Pro 16 M3 PRO 18GB RAM 512GB Black +DODATKI GW-2LATA! FV23%",
+   "last_refresh_time": "2026-06-05T19:10:23+02:00",
+   "created_time": "2026-06-05T19:08:00+02:00",
+   "valid_to_time": "2026-07-05T19:08:01+02:00",
+   "pushup_time": null,
+   "description": "Jesteśmy Dystrybutorem Apple i kompleksowo wyposażamy firmy w sprzęt IT.<br />\nMożesz zakupić u Nas także sprzęt w promocyjnych, obniżonych cenach na portalu OLX.<br />\nPrzedmiotem tego ogłoszenia jest:<br />\n<br />\nApple MacBook Pro 16,2-cali / M3 Pro / 12CPU / 18GPU / 18GB RAM / 512GB SSD / Matryca Liquid Retina XDR / Touch-ID / Multi-Touch / 3xThunderBolt / USB-C / HDMI / Czytnik kart SD / Kolor Space Black<br />\n+ Pakiet Wydłużonej Gwarancji CARE 24-msc o wartości 1299zł!<br />\n+ Dedykowane etui ochronne Hard-Case Thin o wartości 149zł!<br />\n<br />\nCENA PRODUCENTA: 13,999zł !<br />\nNASZA CENA: 7,490zł brutto / 6,089zł netto.<br />\nFAKTURA VAT23%.<br />\n<br />\nU Nas kupisz go dużo taniej i to wraz z dodatkową 2-letnią gwarancją i dedykowanym etui ochronnym Hard-Case w cenie!<br />\nJeśli chcesz, możesz kupić go na całkowicie darmowe Raty PayU 0%, a całość kwoty rozbić aż do 20 całkowicie darmowych rat.<br />\n<br />\n.<br />\n<br />\nFlagowy model MacBooka z 18GB RAM i ultra mocnym 18-rdzeniowym procesorem GPU M3 Pro.<br />\nPrzepiękny, ciemny - czarny kolor Space Black.<br />\nOficjalna dystrybucja Apple.<br />\n<br />\nStan nówka!<br />\nZapakowany w fabrycznym, oryginalnym opakowaniu producenta wraz z kompletem oryginalnych akcesoriów.<br />\nMacBook jest jak nowy, w salonowym, perfekcyjnym stanie.<br />\nPełnowartościowy MacBook bez żadnych wad.<br />\n<br />\nIdealna okazja do nabycia flagowego modelu za praktycznie połowę ceny salonowej!<br />\nUnikatowy zestaw z rozszerzoną, wydłużoną ochroną GW Care na 24msc.<br />\nDodatkowy 2-letni pakiet ochronny o wartości 1299zł w cenie.<br />\n<br />\nWersja z uniwersalną klawiaturą QWERTY.<br />\nPo wyjęciu gotowy do aktywacji przez Użytkownika.<br />\nPo uruchomieniu fabryczny system operacyjny MacOS w języku polskim.<br />\n<br />\nJEŚLI SZUKASZ MOCNEGO I PEWNEGO SPRZĘTU NA LATA, TEN BĘDZIE STRZAŁEM W DZIESIĄTKĘ!<br />\nDodatkowo otrzymasz aż 2-krotnie dłuższą gwarancję, niż standardowo i dedykowane etui ochronne Hard-Case Thin!<br />\nMacbook idealny także na prezent!<br />\n<br />\nDLA PORÓWNANIA:<br />\n= Dokładnie taka sama specyfikacja wynosiła w Apple 13,999zł i dodatkowo 1,299zł za podobny 2-letni pakiet ochrony GW), czyli ponad 2 razy więcej więcej, niż w naszej ofercie! U Nas w zestawie otrzymujesz także 2-letni zestaw ochronny o wartości 1299zł i przezroczyste etui ochronne Hard-Case Thin o wartości 149zł, które idealnie ochroni Twój sprzęt podczas użytkowania. Co więcej - zrobi to w stylowej oprawie!<br />\n= Dodatkowa 24 miesięczna ochrona gwarancyjna - przy sprzęcie o tej wartości ma ogromne znacznie, dając jednocześnie niewspółmierny komfort i swobodę użytkowania przez długie lata.<br />\n= W tej wersji w komplecie z komputerem jest też oryginalny zasilacz Apple MagSafe 140W. W porównaniu do wersji M5 Pro, która sprzedawana jest bez zasilacza to dodatkowa oszczędność rzędu 499zł. Modele M5 niestety nie posiadają już w zestawie ładowarki, co jest zdecydowaną wadą i ujmą.<br />\n= Apple MacBook Pro 16 z procesorem M3 Pro oferuje najwyższą wydajność, skierowaną do wymagających zadań, takich jak edycja wideo czy programowanie. To potężny laptop przeznaczony dla entuzjastów firmy Apple i prawdziwych profesjonalistów. Wyposażony w 16,2-calowy wyświetlacz Retina Liquid XDR 120Hz, zapewnia wyjątkową jakość obrazu i żywe kolory. Procesor M3 Pro z aż 18-rdzeniami GPU oferuje najwyższą wydajność, skierowaną do wymagających zadań, takich jak edycja wideo czy zaawansowane prace programistyczne. Zunifikowane 18GB pamięci RAM pozwala na ultra płynne wykonywanie wielu procesów jednocześnie, a szybki dysk SSD o pojemności 512GB zapewnia komfort i swobodę użytkowania.<br />\n= To nowoczesne narzędzie dla kreatywnych i wymagających użytkowników. Jego wydajność sprosta naprawdę każdemu zadaniu. Komputer cechuje się rekordowym czasem pracy na baterii aż do 24 godzin, zaawansowanym systemem chłodzenia i świetną jakością dźwięku.<br />\n= Idealna okazja do nabycia go w okazyjnej cenie! Niezawodny sprzęt na długie lata w tym przypadku z dodatkową, wydłużoną ochroną GW na 24 miesiące!<br />\n<br />\nPARAMETRY TECHNICZNE:<br />\n= 16,2 calowa matryca Liqiud Retina XDR z Promotion 120Hz<br />\n= Procesor Apple M3 Pro 18GPU / 12CPU<br />\n= 18GB zunifikowanej pamięci RAM<br />\n= Ultra szybki dysk SSD 512GB<br />\n= Wydajna bateria z czasem pracy do 24 godzin<br />\n= Podświetlana klawiatura - Układ QWERTY<br />\n= Ładowarka ze złączem magnetycznym MagSafe<br />\n= 3 Porty USB-C / Thunderbolt<br />\n= Port HDMI<br />\n= Czytnik kart SD<br />\n= Kolor Space Back<br />\n= Rozszerzona ochrona GW 24 miesiące!<br />\n<br />\nW ZESTAWIE:<br />\n= MacBook<br />\n= Oryginalny zasilacz Apple 140W<br />\n= Kabel zasilający Apple MagSafe<br />\n= Instrukcje i broszury producenta<br />\n= Oryginalne pudełko<br />\n= Dokument zakupu<br />\n= Polisa gwarancyjna<br />\n= Dodatkowe etui ochronne Hard-Case<br />\n<br />\nINTERESUJE CIĘ ZAKUP W DARMOWYCH RATACH 0%?<br />\nŻADEN PROBLEM!<br />\n<br />\nJEŻELI INTERESUJE CIĘ SPRZĘT O INNYCH PARAMETRACH?<br />\nSKONTAKTUJ SIĘ Z NAMI!<br />\n<br />\nPosiadamy w ofercie wszystkie modele komputerów Apple:<br />\nPosiadamy w ofercie wszystkie modele komputerów Apple:<br />\n- MacBook Air 13 / Intel / i3 / i5 / i7 / 128GB SSD / 256GB SSD / 512GB SSD<br />\n- MacBook Neo / 256GB / 512GB / 8GBB / Touch ID / Wszystkie wersje!<br />\n- MacBook Air 13 M1 / 8GB RAM / 16GB RAM / 128GB SSD / 256GB SSD / 512GB SSD<br />\n- MacBook Air 13 M2 / 8GB RAM / 16GB RAM / 256GB SSD / 512GB SSD<br />\n- MacBook Air 13 M3 / 16GB RAM / 24GB RAM / 256GB SSD / 512GB SSD / 1TB<br />\n- MacBook Air 13 M4 / 16GB RAM / 24GB RAM / 256GB SSD / 512GB SSD / 1TB<br />\n- MacBook Air 13 M5 / 16GB RAM / 24GB RAM / 256GB SSD / 512GB SSD / 1TB<br />\n- MacBook Air 15 M2 / 8GB RAM / 16GB RAM / 256GB SSD / 512GB SSD / 1TB<br />\n- MacBook Air 15 M3 / 16GB RAM / 24GB RAM / 256GB SSD / 512GB SSD / 1TB<br />\n- MacBook Air 15 M4 / 16GB RAM / 24GB RAM / 256GB SSD / 512GB SSD / 1TB<br />\n- MacBook Air 15 M5 / 16GB RAM / 24GB RAM / 32GB RAM / 256GB SSD / 512GB SSD / 1TB / 2TB /<br />\n- MacBook Air 13 / 15 / 13,6 / 15,3 / Kolory Sky Blue / Silver / Midnight / Starlight / Space Gray<br />\n- MacBook Pro 13 Intel / M1 / M2 / 8GB RAM / 16GB RAM / 32GB RAM / 256GB SSD / 512GB SSD / 1TB SSD<br />\n- MacBook Pro 14 M1 / M1 Pro / M1 Pro Max / 16GB RAM / 32GB RAM / 512GB SSD / 1TB SSD<br />\n- MacBook Pro 14 M2 / M2 Pro / M2 Pro Max / 16GB RAM / 24GB RAM / 32GB RAM / 512GB SSD / 1TB SSD<br />\n- MacBook Pro 14 M3 / M3 Pro / M3 Pro Max / 8GB RAM / 18GB RAM / 36GB RAM / 512GB SSD / 1TB SSD<br />\n- MacBook Pro 14 M4 / M4 Pro / M4 Pro Max / 24GB RAM / 36GB RAM / 46GB RAM / 512GB SSD / 1TB SSD<br />\n- MacBook Pro 14 M5 / 16GB RAM / 24GB RAM / 36GB RAM / 46GB RAM / 512GB SSD / 1TB SSD<br />\n- MacBook Pro 16 / Intel i7 / i9 / 16GB RAM / 32GB RAM / 64GB RAM / 512GB SSD / 1TB SSD / 2TB SSD<br />\n- MacBook Pro 16 M1 Pro / M1 Pro Max / 16GB RAM / 32GB RAM / 512GB SSD / 1TB SSD<br />\n- MacBook Pro 16 M2 Pro / M2 Pro Max / 16GB RAM / 32GB RAM / 512GB SSD / 1TB SSD<br />\n- MacBook Pro 16 M3 Pro / M3 Pro Max / 18GB RAM / 36GB RAM / 512GB SSD / 1TB SSD<br />\n- MacBook Pro 16 M4 Pro / M4 Pro Max / 24GB RAM / 48GB RAM / 64GB / 512GB SSD / 1TB SSD<br />\n- MacBook Pro 16 M5 Pro / M5 Max / 24GB RAM / 48GB RAM / 64GB / 1TB SSD / 2TB SSD<br />\n- Apple iMac 21,5 / 27 /24 / i3 / i5 / i7 / i9 / M1 / M3 / M4 / Max / Xenon / iMac Pro<br />\n- Apple Mac Mini / M2 / M2 Pro / M4 / M4 Pro / Max / Studio / Apple Retina Display XDR / Pro / Ultra<br />\n- Apple iPhone 17 Pro 256GB 512GB 1TB / iPhone Air 11 12 SE 13 14 15 16 16 Pro Max 17 17 Pro 17 Pro Max Plus 64GB 128GB 256GB 512GB 1TB 2TB / Cosmic Orange / Starlight Tytan / Space Black / Silver / Midnight<br />\n<br />\n+<br />\n+ +<br />\n+ + +<br />\n+ + + +<br />\n<br />\nKUP U NAS - PEWNEGO SPRZEDAWCY!<br />\nDO ZAKUPU JEST PARAGON FISKALNY LUB FAKTURA ZAKUPOWA.<br />\n<br />\nDLA PRZEDSIĘBIORCÓW TO DODATKOWY ATUT!<br />\nPEŁNA FAKTURA VAT23%.<br />\nCena brutto: 7,490zł / 6,089zł netto!<br />\n<br />\nNIE CZEKAJ, ABY UBIEGŁ CIĘ KTOŚ INNY,<br />\nKUP TERAZ, A TWOJE ZAKUPY BĘDĄ U CIEBIE JUŻ JUTRO!<br />\n<br />\n+ + + +<br />\n+ + +<br />\n+ +<br />\n+<br />\n<br />\n= = = = = = = = = = = = =<br />\n- MASZ JAKIEŚ PYTANIA ?<br />\n- NAPISZ DO NAS LUB ZADZWOŃ !<br />\n5 I 5 - 7 2 O - 1 9 O",
+   "promotion": {
+    "highlighted": false,
+    "urgent": false,
+    "top_ad": true,
+    "options": [
+     "promoted_ad_30"
+    ],
+    "b2c_ad_page": true,
+    "premium_ad_page": true
+   },
+   "params": [
+    {
+     "key": "price",
+     "name": "Cena",
+     "type": "price",
+     "value": {
+      "value": 7490,
+      "type": "arranged",
+      "arranged": true,
+      "budget": false,
+      "currency": "PLN",
+      "negotiable": true,
+      "converted_value": null,
+      "previous_value": null,
+      "converted_previous_value": null,
+      "converted_currency": null,
+      "label": "7 490 zł",
+      "previous_label": null
+     }
+    },
+    {
+     "key": "state",
+     "name": "Stan",
+     "type": "select",
+     "value": {
+      "key": "new",
+      "label": "Nowe"
+     }
+    },
+    {
+     "key": "screendiagonal_laptops",
+     "name": "Przekątna ekranu",
+     "type": "select",
+     "value": {
+      "key": "16-and-more",
+      "label": "16-16,9\""
+     }
+    },
+    {
+     "key": "laptops_series",
+     "name": "Model",
+     "type": "select",
+     "value": {
+      "key": "macbook-pro-m3",
+      "label": "MacBook Pro (M3 / Pro / Max)"
+     }
+    },
+    {
+     "key": "operatingsystem_laptops",
+     "name": "System operacyjny",
+     "type": "select",
+     "value": {
+      "key": "mac-os",
+      "label": "Mac OS"
+     }
+    },
+    {
+     "key": "graphicscardtype_laptops",
+     "name": "Rodzaj karty graficznej",
+     "type": "select",
+     "value": {
+      "key": "integrated",
+      "label": "Zintegrowana"
+     }
+    },
+    {
+     "key": "processorseries_laptops",
+     "name": "Seria procesora",
+     "type": "select",
+     "value": {
+      "key": "apple-m3-pro-max",
+      "label": "Apple M3 / Pro / Max"
+     }
+    },
+    {
+     "key": "ramsize_laptops",
+     "name": "Wielkość pamięci RAM",
+     "type": "select",
+     "value": {
+      "key": "24gb",
+      "label": "24GB"
+     }
+    },
+    {
+     "key": "harddisktype_laptops",
+     "name": "Typ dysku twardego",
+     "type": "select",
+     "value": {
+      "key": "ssd",
+      "label": "SSD"
+     }
+    },
+    {
+     "key": "disksize_laptops",
+     "name": "Wielkość dysku",
+     "type": "select",
+     "value": {
+      "key": "257gb-512gb",
+      "label": "257GB - 512GB"
+     }
+    }
+   ],
+   "key_params": [],
+   "business": true,
+   "user": {
+    "id": 1460740088,
+    "created": "2023-02-20T16:40:06+01:00",
+    "other_ads_enabled": true,
+    "name": "iMobi",
+    "logo": null,
+    "logo_ad_page": "https://img-resizer.prd.01.eu-west-1.eu.olx.org/img-eu-olxpl-production/1294165401_1_261x203_rev001.jpg",
+    "social_network_account_type": null,
+    "photo": null,
+    "banner_mobile": "https://img-resizer.prd.01.eu-west-1.eu.olx.org/img-eu-olxpl-production/1294165401_1_0x0_rev001.jpg",
+    "banner_desktop": "https://img-resizer.prd.01.eu-west-1.eu.olx.org/img-eu-olxpl-production/1294165256_1_1366x210.jpg",
+    "company_name": "Sklep iMobi",
+    "about": "Witaj na naszej stronie iMobi - miejscu, gdzie znajdziesz starannie wyselekcjonowaną elektronikę najwyższej jakości.\r\nNaszym priorytetem jest zapewnienie klientom bezpiecznych i komfortowych zakupów oraz produktów, które spełnią ich oczekiwania. \r\n\r\nJesteśmy dystrybutorem sprzętu Apple.\r\nProwadzimy sprzedaż urządzeń IT.\r\nJesteśmy profesjonalistami w branży!\r\nGwarantujemy zadowolenie z zakupów.\r\nNaszą specjalizacją są produkty Apple.\r\nOferujemy nie tylko MacBooki, iPhone’y, iPady, ale także sprzęty RTV/AGD, czy produkty wyposażenia biurowego.\r\nKażdy sprzęt oferowany jest z gwarancją - niezależnie od jego stanu. \r\n\r\nDlaczego warto wybrać Nas?\r\n* Jakość i oryginalność: Wszystkie nasze produkty pochodzą z oficjalnej dystrybucji i są w 100% oryginalne.\r\n* Profesjonalizm: Nasza obsługa klienta zawsze służy pomocą w doborze najlepszego produktu.\r\n* Bezpieczne zakupy: Każda transakcja jest przeprowadzana zgodnie z najwyższymi standardami.\r\n* Szybka wysyłka: Działamy sprawnie, by Twoje zakupy dotarły do Ciebie w możliwie najkrótszym czasie. \r\n\r\nProwadzimy sprzedaż wysyłkową, lecz istnieje także możliwość odbioru osobistego w punkcie stacjonarnym w Krakowie.\r\nWszystkie zamówienia realizowane drogą wysyłkową są starannie pakowane i zabezpieczane przed wysyłką\r\n\r\nSłużymy pomocą zarówno przed, jak i po-zakupową, a także pogwarancyjną, doradztwem technicznym i serwisowym.\r\nWychodzimy na przeciw Klienta - zamówienia realizujemy błyskawicznie. \r\nGwarantujemy uczciwą, bezpieczną transakcję, a także błyskawiczną realizację zamówienia.\r\nOferujemy także sprzedaż w oparciu o usługę Rat PayU 0% - jeśli interesuje Cię taka opcja - skontaktuj się z Nami!\r\n\r\nW przypadku dodatkowych pytań lub wątpliwości przez zakupem, zapraszamy do kontaktu - chętnie na wszystkie odpowiemy! \r\n\r\nZAPRASZAMY DO ZAKUPÓW!\r\nNIE CZEKAJ - KUP TERAZ,\r\nA TWOJE ZAKUPY BĘDĄ U CIEBIE JUŻ JUTRO!",
+    "b2c_business_page": true,
+    "is_online": false,
+    "last_seen": "2026-06-10T00:16:51+02:00",
+    "seller_type": null,
+    "uuid": "e720d7e7-8c55-47b8-8adb-606530cd1041"
+   },
+   "status": "active",
+   "contact": {
+    "name": "iMobi",
+    "phone": true,
+    "chat": true,
+    "negotiation": true,
+    "courier": false
+   },
+   "map": {
+    "zoom": 13,
+    "lat": 50.06026,
+    "lon": 19.9396,
+    "radius": 7,
+    "show_detailed": false
+   },
+   "location": {
+    "city": {
+     "id": 8959,
+     "name": "Kraków",
+     "normalized_name": "krakow"
+    },
+    "district": {
+     "id": 273,
+     "name": "Stare Miasto"
+    },
+    "region": {
+     "id": 4,
+     "name": "Małopolskie",
+     "normalized_name": "malopolskie"
+    }
+   },
+   "photos": [
+    {
+     "id": 11064202083,
+     "filename": "b8wy8b310npk2-PL",
+     "rotation": 0,
+     "width": 2560,
+     "height": 1800,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/b8wy8b310npk2-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11064202084,
+     "filename": "m8pqh7z99t6e2-PL",
+     "rotation": 0,
+     "width": 3000,
+     "height": 2295,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/m8pqh7z99t6e2-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11064202085,
+     "filename": "5j8uprdgq8201-PL",
+     "rotation": 0,
+     "width": 3000,
+     "height": 1739,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/5j8uprdgq8201-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11064202086,
+     "filename": "fgc5n75vl4n9-PL",
+     "rotation": 0,
+     "width": 4000,
+     "height": 6148,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/fgc5n75vl4n9-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11064202087,
+     "filename": "5gu9n7swxdfc-PL",
+     "rotation": 0,
+     "width": 4000,
+     "height": 6148,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/5gu9n7swxdfc-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11064202088,
+     "filename": "d1yy3yyii5ma-PL",
+     "rotation": 0,
+     "width": 3000,
+     "height": 3071,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/d1yy3yyii5ma-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11064202089,
+     "filename": "6cf06z950ou32-PL",
+     "rotation": 0,
+     "width": 3000,
+     "height": 2250,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/6cf06z950ou32-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11064202090,
+     "filename": "vehszirdo7ba3-PL",
+     "rotation": 0,
+     "width": 3000,
+     "height": 2173,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/vehszirdo7ba3-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11064202091,
+     "filename": "1o5rlqx4qa141-PL",
+     "rotation": 0,
+     "width": 4000,
+     "height": 4000,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/1o5rlqx4qa141-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11064202092,
+     "filename": "jtzu16aa99oh-PL",
+     "rotation": 0,
+     "width": 3000,
+     "height": 2295,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/jtzu16aa99oh-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11064202093,
+     "filename": "yc8lhkfuhwfw-PL",
+     "rotation": 0,
+     "width": 3500,
+     "height": 2364,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/yc8lhkfuhwfw-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11064202094,
+     "filename": "mnrha7oxcgo03-PL",
+     "rotation": 0,
+     "width": 4000,
+     "height": 4000,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/mnrha7oxcgo03-PL/image;s={width}x{height}"
+    }
+   ],
+   "partner": null,
+   "category": {
+    "id": 3102,
+    "type": "electronics"
+   },
+   "delivery": {
+    "rock": {
+     "offer_id": null,
+     "active": false,
+     "mode": "NotEligible"
+    }
+   },
+   "safedeal": {
+    "weight": 0,
+    "weight_grams": 0,
+    "status": "unactive",
+    "safedeal_blocked": false,
+    "allowed_quantity": []
+   },
+   "shop": {
+    "subdomain": "imobi"
+   },
+   "isGpsrAvailable": true,
+   "offer_type": "offer",
+   "protect_phone": false
+  },
+  {
+   "id": 1075714421,
+   "url": "https://www.olx.pl/d/oferta/macbook-pro-13-m2-8gb-ram-512gb-dysk-bateria-92-stan-idealny-a2338-space-gray-kupiony-mediamarkt-CID99-ID1aNAsB.html",
+   "title": "MacBook Pro 13 - M2 8GB RAM, 512GB Dysk - Bateria 92 % Stan idealny A2338 - space gray - kupiony MediaMarkt",
+   "last_refresh_time": "2026-06-11T07:33:02+02:00",
+   "created_time": "2026-05-24T21:31:06+02:00",
+   "valid_to_time": "2026-06-23T21:31:07+02:00",
+   "pushup_time": "2026-06-11T07:33:02+02:00",
+   "omnibus_pushup_time": "2026-06-11T07:33:02+02:00",
+   "description": "MacBook Pro 13 z procesorem M2, - w pięknym stanie bez rys i otarć<br />\n8GB RAM <br />\n512GB - Dysk<br />\nBateria na poziomie 92%,<br />\nA2338 w kolorze space gray.<br />\n<br />\nKupiony w sklepie MediaMarkt (dołączam dowód zakupu jako potwierdzenie legalności).<br />\n<br />\nWszystko sprawne, w zestawie kabel zamiennik, brak ładowarki (działa z prawie każdą na USB -c)",
+   "promotion": {
+    "highlighted": true,
+    "urgent": false,
+    "top_ad": true,
+    "options": [
+     "bundle_optimum"
+    ],
+    "b2c_ad_page": false,
+    "premium_ad_page": false
+   },
+   "params": [
+    {
+     "key": "price",
+     "name": "Cena",
+     "type": "price",
+     "value": {
+      "value": 2999,
+      "type": "price",
+      "arranged": false,
+      "budget": false,
+      "currency": "PLN",
+      "negotiable": false,
+      "converted_value": null,
+      "previous_value": null,
+      "converted_previous_value": null,
+      "converted_currency": null,
+      "label": "2 999 zł",
+      "previous_label": null
+     }
+    },
+    {
+     "key": "state",
+     "name": "Stan",
+     "type": "select",
+     "value": {
+      "key": "used",
+      "label": "Używane"
+     }
+    },
+    {
+     "key": "screendiagonal_laptops",
+     "name": "Przekątna ekranu",
+     "type": "select",
+     "value": {
+      "key": "13-13-9",
+      "label": "13-13,9\""
+     }
+    },
+    {
+     "key": "laptops_series",
+     "name": "Model",
+     "type": "select",
+     "value": {
+      "key": "macbook-pro-m2",
+      "label": "MacBook Pro (M2 / Pro / Max)"
+     }
+    },
+    {
+     "key": "operatingsystem_laptops",
+     "name": "System operacyjny",
+     "type": "select",
+     "value": {
+      "key": "mac-os",
+      "label": "Mac OS"
+     }
+    },
+    {
+     "key": "graphicscardtype_laptops",
+     "name": "Rodzaj karty graficznej",
+     "type": "select",
+     "value": {
+      "key": "integrated",
+      "label": "Zintegrowana"
+     }
+    },
+    {
+     "key": "processorseries_laptops",
+     "name": "Seria procesora",
+     "type": "select",
+     "value": {
+      "key": "apple-m2-pro-max",
+      "label": "Apple M2 / Pro / Max"
+     }
+    },
+    {
+     "key": "ramsize_laptops",
+     "name": "Wielkość pamięci RAM",
+     "type": "select",
+     "value": {
+      "key": "6gb-12gb",
+      "label": "6GB - 12GB"
+     }
+    },
+    {
+     "key": "harddisktype_laptops",
+     "name": "Typ dysku twardego",
+     "type": "select",
+     "value": {
+      "key": "ssd",
+      "label": "SSD"
+     }
+    },
+    {
+     "key": "disksize_laptops",
+     "name": "Wielkość dysku",
+     "type": "select",
+     "value": {
+      "key": "513gb-999gb",
+      "label": "513GB - 999GB"
+     }
+    }
+   ],
+   "key_params": [],
+   "business": false,
+   "user": {
+    "id": 33434261,
+    "created": "2015-08-10T08:50:14+02:00",
+    "other_ads_enabled": true,
+    "name": "Łukasz",
+    "logo": null,
+    "logo_ad_page": null,
+    "social_network_account_type": "facebook",
+    "photo": "https://img-resizer.prd.01.eu-west-1.eu.olx.org/img-eu-olxpl-production/472554363_1_100x100_rev069.jpg",
+    "banner_mobile": "",
+    "banner_desktop": "",
+    "company_name": "",
+    "about": "",
+    "b2c_business_page": false,
+    "is_online": false,
+    "last_seen": "2026-06-03T16:26:46+02:00",
+    "seller_type": null,
+    "uuid": "9f28c904-b6ec-495c-98f4-ac7f87fcff71"
+   },
+   "status": "active",
+   "contact": {
+    "name": "Łukasz",
+    "phone": true,
+    "chat": true,
+    "negotiation": false,
+    "courier": false
+   },
+   "map": {
+    "zoom": 12,
+    "lat": 49.61405,
+    "lon": 20.71204,
+    "radius": 2,
+    "show_detailed": false
+   },
+   "location": {
+    "city": {
+     "id": 33369,
+     "name": "Nowy Sącz",
+     "normalized_name": "nowy-sacz"
+    },
+    "region": {
+     "id": 4,
+     "name": "Małopolskie",
+     "normalized_name": "malopolskie"
+    }
+   },
+   "photos": [
+    {
+     "id": 11044533859,
+     "filename": "bnw1qxkc1h1e1-PL",
+     "rotation": 0,
+     "width": 5712,
+     "height": 4284,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/bnw1qxkc1h1e1-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11044533860,
+     "filename": "dhj3ugx0ogc63-PL",
+     "rotation": 0,
+     "width": 3934,
+     "height": 4284,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/dhj3ugx0ogc63-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11044533861,
+     "filename": "rok0h0c1opas-PL",
+     "rotation": 0,
+     "width": 3024,
+     "height": 4032,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/rok0h0c1opas-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11044533862,
+     "filename": "dtuwhjeysqre3-PL",
+     "rotation": 0,
+     "width": 3024,
+     "height": 4032,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/dtuwhjeysqre3-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11044533863,
+     "filename": "2gdosdt9aefh1-PL",
+     "rotation": 0,
+     "width": 4797,
+     "height": 3487,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/2gdosdt9aefh1-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11044533864,
+     "filename": "t3p54dpfrxy01-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/t3p54dpfrxy01-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11044533865,
+     "filename": "21borhhboke42-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/21borhhboke42-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11044533866,
+     "filename": "k1ax15g8r17n1-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/k1ax15g8r17n1-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11044533867,
+     "filename": "4ycyz5w3qj243-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/4ycyz5w3qj243-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11044533868,
+     "filename": "cqn5liqjivdv-PL",
+     "rotation": 0,
+     "width": 3072,
+     "height": 2260,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/cqn5liqjivdv-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11044533869,
+     "filename": "dzsq82afxhho1-PL",
+     "rotation": 0,
+     "width": 3024,
+     "height": 2671,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/dzsq82afxhho1-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11044533870,
+     "filename": "busstn9hgrbn-PL",
+     "rotation": 0,
+     "width": 4916,
+     "height": 3173,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/busstn9hgrbn-PL/image;s={width}x{height}"
+    }
+   ],
+   "partner": null,
+   "category": {
+    "id": 3102,
+    "type": "electronics"
+   },
+   "delivery": {
+    "rock": {
+     "offer_id": "49b4aa73-5e2d-4606-b628-0d51363e87f0",
+     "active": true,
+     "mode": "BuyWithDelivery"
+    }
+   },
+   "safedeal": {
+    "weight": 0,
+    "weight_grams": 0,
+    "status": "unactive",
+    "safedeal_blocked": false,
+    "allowed_quantity": []
+   },
+   "shop": {
+    "subdomain": null
+   },
+   "isGpsrAvailable": true,
+   "offer_type": "offer",
+   "protect_phone": true
+  },
+  {
+   "id": 1078880361,
+   "url": "https://www.olx.pl/d/oferta/macbook-pro-sorzedam-CID99-ID1b0S49.html",
+   "title": "Macbook pro sorzedam",
+   "last_refresh_time": "2026-06-10T13:01:58+02:00",
+   "created_time": "2026-06-10T12:59:06+02:00",
+   "valid_to_time": "2026-07-10T12:59:07+02:00",
+   "pushup_time": null,
+   "description": "Sprzedam uszkodzonego MacBooka Pro z orginalna ładowarką,myszką,i hub",
+   "promotion": {
+    "highlighted": false,
+    "urgent": false,
+    "top_ad": false,
+    "options": [],
+    "b2c_ad_page": false,
+    "premium_ad_page": false
+   },
+   "params": [
+    {
+     "key": "price",
+     "name": "Cena",
+     "type": "price",
+     "value": {
+      "value": 400,
+      "type": "arranged",
+      "arranged": true,
+      "budget": false,
+      "currency": "PLN",
+      "negotiable": true,
+      "converted_value": null,
+      "previous_value": null,
+      "converted_previous_value": null,
+      "converted_currency": null,
+      "label": "400 zł",
+      "previous_label": null
+     }
+    },
+    {
+     "key": "state",
+     "name": "Stan",
+     "type": "select",
+     "value": {
+      "key": "used",
+      "label": "Używane"
+     }
+    },
+    {
+     "key": "screendiagonal_laptops",
+     "name": "Przekątna ekranu",
+     "type": "select",
+     "value": {
+      "key": "15-15-9",
+      "label": "15-15,9\""
+     }
+    },
+    {
+     "key": "ramsize_laptops",
+     "name": "Wielkość pamięci RAM",
+     "type": "select",
+     "value": {
+      "key": "6gb-12gb",
+      "label": "6GB - 12GB"
+     }
+    }
+   ],
+   "key_params": [],
+   "business": false,
+   "user": {
+    "id": 525887174,
+    "created": "2019-11-19T12:23:14+01:00",
+    "other_ads_enabled": true,
+    "name": "Daniel",
+    "logo": null,
+    "logo_ad_page": null,
+    "social_network_account_type": "facebook",
+    "photo": "https://img-resizer.prd.01.eu-west-1.eu.olx.org/img-eu-olxpl-production/1024973699_1_100x100_rev020.jpg",
+    "banner_mobile": "",
+    "banner_desktop": "",
+    "company_name": "",
+    "about": "",
+    "b2c_business_page": false,
+    "is_online": false,
+    "last_seen": "2026-06-10T12:59:07+02:00",
+    "seller_type": null,
+    "uuid": "0508fda9-a3b3-4de2-8ed1-d314c116150d"
+   },
+   "status": "active",
+   "contact": {
+    "name": "Daniel",
+    "phone": true,
+    "chat": true,
+    "negotiation": true,
+    "courier": false
+   },
+   "map": {
+    "zoom": 12,
+    "lat": 52.83568,
+    "lon": 18.90257,
+    "radius": 1,
+    "show_detailed": false
+   },
+   "location": {
+    "city": {
+     "id": 69283,
+     "name": "Nieszawa",
+     "normalized_name": "nieszawa"
+    },
+    "region": {
+     "id": 15,
+     "name": "Kujawsko-pomorskie",
+     "normalized_name": "kujawsko-pomorskie"
+    }
+   },
+   "photos": [
+    {
+     "id": 11071570059,
+     "filename": "hk3kcdscqkhu3-PL",
+     "rotation": 0,
+     "width": 3000,
+     "height": 4000,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/hk3kcdscqkhu3-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11071570060,
+     "filename": "d9w2xura6rm21-PL",
+     "rotation": 0,
+     "width": 4000,
+     "height": 3000,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/d9w2xura6rm21-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11071570061,
+     "filename": "5mbu1kys8th9-PL",
+     "rotation": 0,
+     "width": 3000,
+     "height": 4000,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/5mbu1kys8th9-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11071570062,
+     "filename": "s7mhlpzsz2f52-PL",
+     "rotation": 0,
+     "width": 4000,
+     "height": 3000,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/s7mhlpzsz2f52-PL/image;s={width}x{height}"
+    }
+   ],
+   "partner": null,
+   "category": {
+    "id": 3102,
+    "type": "electronics"
+   },
+   "delivery": {
+    "rock": {
+     "offer_id": "e80a992b-7db9-465d-844c-5f6a91836656",
+     "active": true,
+     "mode": "BuyWithDelivery"
+    }
+   },
+   "safedeal": {
+    "weight": 0,
+    "weight_grams": 0,
+    "status": "unactive",
+    "safedeal_blocked": false,
+    "allowed_quantity": []
+   },
+   "shop": {
+    "subdomain": null
+   },
+   "isGpsrAvailable": true,
+   "offer_type": "offer",
+   "protect_phone": true
+  },
+  {
+   "id": 1078324119,
+   "url": "https://www.olx.pl/d/oferta/macbook-bardzo-dobry-do-pracy-domowej-CID99-ID1aYxmw.html",
+   "title": "Macbook bardzo dobry do pracy domowej",
+   "last_refresh_time": "2026-06-07T15:35:59+02:00",
+   "created_time": "2026-06-07T15:32:22+02:00",
+   "valid_to_time": "2026-07-07T15:32:23+02:00",
+   "pushup_time": null,
+   "description": "Macbook w bardzo dobrym stanie, idealny do wykonywania pracy domowej. Przynoszący wiele korzyści uczniom i studentom. Wydajny i niezawodny laptop marki Apple.posiadam ładowarkę stan wizualny trochę ma rysek a tak po za tym wszystko działa",
+   "promotion": {
+    "highlighted": true,
+    "urgent": false,
+    "top_ad": true,
+    "options": [
+     "bundle_basic"
+    ],
+    "b2c_ad_page": false,
+    "premium_ad_page": false
+   },
+   "params": [
+    {
+     "key": "price",
+     "name": "Cena",
+     "type": "price",
+     "value": {
+      "value": 190,
+      "type": "arranged",
+      "arranged": true,
+      "budget": false,
+      "currency": "PLN",
+      "negotiable": true,
+      "converted_value": null,
+      "previous_value": 200,
+      "converted_previous_value": null,
+      "converted_currency": null,
+      "label": "190 zł",
+      "previous_label": "200 zł"
+     }
+    },
+    {
+     "key": "state",
+     "name": "Stan",
+     "type": "select",
+     "value": {
+      "key": "used",
+      "label": "Używane"
+     }
+    },
+    {
+     "key": "screendiagonal_laptops",
+     "name": "Przekątna ekranu",
+     "type": "select",
+     "value": {
+      "key": "11-12-9",
+      "label": "11-12,9\""
+     }
+    },
+    {
+     "key": "laptops_series",
+     "name": "Model",
+     "type": "select",
+     "value": {
+      "key": "macbook-air-intel",
+      "label": "MacBook Air (Procesor Intel)"
+     }
+    },
+    {
+     "key": "operatingsystem_laptops",
+     "name": "System operacyjny",
+     "type": "select",
+     "value": {
+      "key": "mac-os",
+      "label": "Mac OS"
+     }
+    },
+    {
+     "key": "graphicscardtype_laptops",
+     "name": "Rodzaj karty graficznej",
+     "type": "select",
+     "value": {
+      "key": "integrated",
+      "label": "Zintegrowana"
+     }
+    },
+    {
+     "key": "processorseries_laptops",
+     "name": "Seria procesora",
+     "type": "select",
+     "value": {
+      "key": "apple-intel",
+      "label": "Apple (Procesor Intel)"
+     }
+    },
+    {
+     "key": "ramsize_laptops",
+     "name": "Wielkość pamięci RAM",
+     "type": "select",
+     "value": {
+      "key": "up-to-4gb",
+      "label": "Do 4GB"
+     }
+    },
+    {
+     "key": "harddisktype_laptops",
+     "name": "Typ dysku twardego",
+     "type": "select",
+     "value": {
+      "key": "hdd-ssd",
+      "label": "HDD + SSD"
+     }
+    },
+    {
+     "key": "disksize_laptops",
+     "name": "Wielkość dysku",
+     "type": "select",
+     "value": {
+      "key": "257gb-512gb",
+      "label": "257GB - 512GB"
+     }
+    }
+   ],
+   "key_params": [],
+   "business": false,
+   "user": {
+    "id": 1738866634,
+    "created": "2023-10-14T16:34:06+02:00",
+    "other_ads_enabled": true,
+    "name": "kriscaganowski",
+    "logo": null,
+    "logo_ad_page": null,
+    "social_network_account_type": null,
+    "photo": null,
+    "banner_mobile": "",
+    "banner_desktop": "",
+    "company_name": "",
+    "about": "",
+    "b2c_business_page": false,
+    "is_online": false,
+    "last_seen": "2026-06-10T15:09:55+02:00",
+    "seller_type": null,
+    "uuid": "4b816000-cfbb-4ab6-8469-1a25666473bd"
+   },
+   "status": "active",
+   "contact": {
+    "name": "kriscaganowski",
+    "phone": true,
+    "chat": true,
+    "negotiation": true,
+    "courier": false
+   },
+   "map": {
+    "zoom": 13,
+    "lat": 52.23876,
+    "lon": 21.08553,
+    "radius": 7,
+    "show_detailed": false
+   },
+   "location": {
+    "city": {
+     "id": 17871,
+     "name": "Warszawa",
+     "normalized_name": "warszawa"
+    },
+    "district": {
+     "id": 381,
+     "name": "Praga-Południe"
+    },
+    "region": {
+     "id": 2,
+     "name": "Mazowieckie",
+     "normalized_name": "mazowieckie"
+    }
+   },
+   "photos": [
+    {
+     "id": 11072241472,
+     "filename": "117yi5ka3bkk-PL",
+     "rotation": 0,
+     "width": 1000,
+     "height": 750,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/117yi5ka3bkk-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11072241475,
+     "filename": "0f4dfrnc7ev73-PL",
+     "rotation": 0,
+     "width": 1000,
+     "height": 750,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/0f4dfrnc7ev73-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11072241477,
+     "filename": "5jsn763b82b92-PL",
+     "rotation": 0,
+     "width": 1000,
+     "height": 750,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/5jsn763b82b92-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11072241480,
+     "filename": "hvxdzfql5hmq3-PL",
+     "rotation": 0,
+     "width": 1000,
+     "height": 750,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/hvxdzfql5hmq3-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11072241483,
+     "filename": "308ickzbb8to2-PL",
+     "rotation": 0,
+     "width": 1000,
+     "height": 750,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/308ickzbb8to2-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11072241485,
+     "filename": "qyqj6uvavu6n3-PL",
+     "rotation": 0,
+     "width": 1000,
+     "height": 750,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/qyqj6uvavu6n3-PL/image;s={width}x{height}"
+    }
+   ],
+   "partner": null,
+   "category": {
+    "id": 3102,
+    "type": "electronics"
+   },
+   "delivery": {
+    "rock": {
+     "offer_id": null,
+     "active": false,
+     "mode": "NotEligible"
+    }
+   },
+   "safedeal": {
+    "weight": 0,
+    "weight_grams": 0,
+    "status": "unactive",
+    "safedeal_blocked": false,
+    "allowed_quantity": []
+   },
+   "shop": {
+    "subdomain": null
+   },
+   "isGpsrAvailable": true,
+   "offer_type": "offer",
+   "protect_phone": true
+  },
+  {
+   "id": 1059204663,
+   "url": "https://www.olx.pl/d/oferta/macbook-pro-16-m2-max-96gb-8tb-jak-nowy-CID99-ID19Gjvb.html",
+   "title": "MacBook Pro 16\" M2 Max, 96GB/8TB – jak nowy",
+   "last_refresh_time": "2026-06-10T19:30:52+02:00",
+   "created_time": "2026-03-07T12:32:46+01:00",
+   "valid_to_time": "2026-07-05T13:32:47+02:00",
+   "pushup_time": "2026-06-10T19:30:52+02:00",
+   "omnibus_pushup_time": "2026-06-10T19:30:52+02:00",
+   "description": "Sprzedam MacBook Pro 16\" z układem Apple M2 Max jak nowy. Kupiony 06.11.2025. Gwarancja do 06.11.2026 z możliwością przedłużenia do 06.11.2028. Sprzedaję, ponieważ zmieniłem pracę i dostałem M4 Max w podobnej konfiguracji, więc ten leży nieużywany.<br />\n<br />\nSpecyfikacja:<br />\n- Procesor: Apple M2 Max, 12 CPU 38 GPU<br />\n- Pamięć RAM: 96 GB<br />\n- Dysk SSD: 8 TB<br />\n- Bateria: 23 cykle, kondycja 100%<br />\n- System: macOS Tahoe 26.5<br />\n- Stan wizualny: jak nowy<br />\n- Stan techniczny: jak nowy<br />\n- Data zakupu: 06.11.2025 (posiadam dowód zakupu)<br />\n<br />\nW zestawie:<br />\n- Oryginalna ładowarka USB‑C i kabel<br />\n- Oryginalne pudełko<br />\n<br />\nDostawa:<br />\n- Odbiór osobisty lub wysyłka",
+   "promotion": {
+    "highlighted": true,
+    "urgent": false,
+    "top_ad": true,
+    "options": [
+     "bundle_premium"
+    ],
+    "b2c_ad_page": false,
+    "premium_ad_page": false
+   },
+   "params": [
+    {
+     "key": "price",
+     "name": "Cena",
+     "type": "price",
+     "value": {
+      "value": 14000,
+      "type": "arranged",
+      "arranged": true,
+      "budget": false,
+      "currency": "PLN",
+      "negotiable": true,
+      "converted_value": null,
+      "previous_value": 14500,
+      "converted_previous_value": null,
+      "converted_currency": null,
+      "label": "14 000 zł",
+      "previous_label": "14 500 zł"
+     }
+    },
+    {
+     "key": "state",
+     "name": "Stan",
+     "type": "select",
+     "value": {
+      "key": "used",
+      "label": "Używane"
+     }
+    },
+    {
+     "key": "screendiagonal_laptops",
+     "name": "Przekątna ekranu",
+     "type": "select",
+     "value": {
+      "key": "16-and-more",
+      "label": "16-16,9\""
+     }
+    },
+    {
+     "key": "laptops_series",
+     "name": "Model",
+     "type": "select",
+     "value": {
+      "key": "macbook-pro-m2",
+      "label": "MacBook Pro (M2 / Pro / Max)"
+     }
+    },
+    {
+     "key": "operatingsystem_laptops",
+     "name": "System operacyjny",
+     "type": "select",
+     "value": {
+      "key": "mac-os",
+      "label": "Mac OS"
+     }
+    },
+    {
+     "key": "graphicscardtype_laptops",
+     "name": "Rodzaj karty graficznej",
+     "type": "select",
+     "value": {
+      "key": "integrated",
+      "label": "Zintegrowana"
+     }
+    },
+    {
+     "key": "processorseries_laptops",
+     "name": "Seria procesora",
+     "type": "select",
+     "value": {
+      "key": "apple-m2-pro-max",
+      "label": "Apple M2 / Pro / Max"
+     }
+    },
+    {
+     "key": "ramsize_laptops",
+     "name": "Wielkość pamięci RAM",
+     "type": "select",
+     "value": {
+      "key": "others",
+      "label": "Inna"
+     }
+    },
+    {
+     "key": "harddisktype_laptops",
+     "name": "Typ dysku twardego",
+     "type": "select",
+     "value": {
+      "key": "ssd",
+      "label": "SSD"
+     }
+    },
+    {
+     "key": "disksize_laptops",
+     "name": "Wielkość dysku",
+     "type": "select",
+     "value": {
+      "key": "4tb-more",
+      "label": "4TB i więcej"
+     }
+    }
+   ],
+   "key_params": [],
+   "business": false,
+   "user": {
+    "id": 1387443648,
+    "created": "2022-11-27T21:12:20+01:00",
+    "other_ads_enabled": true,
+    "name": "Bartosz",
+    "logo": null,
+    "logo_ad_page": null,
+    "social_network_account_type": null,
+    "photo": null,
+    "banner_mobile": "",
+    "banner_desktop": "",
+    "company_name": "",
+    "about": "",
+    "b2c_business_page": false,
+    "is_online": false,
+    "last_seen": "2026-06-09T09:33:59+02:00",
+    "seller_type": null,
+    "uuid": "eaa14156-d19f-40a7-ae38-10e6f48da265"
+   },
+   "status": "active",
+   "contact": {
+    "name": "Bartosz",
+    "phone": true,
+    "chat": true,
+    "negotiation": true,
+    "courier": false
+   },
+   "map": {
+    "zoom": 12,
+    "lat": 50.59629,
+    "lon": 16.81108,
+    "radius": 3,
+    "show_detailed": false
+   },
+   "location": {
+    "city": {
+     "id": 59751,
+     "name": "Ząbkowice Śląskie",
+     "normalized_name": "zabkowice-slaskie"
+    },
+    "region": {
+     "id": 3,
+     "name": "Dolnośląskie",
+     "normalized_name": "dolnoslaskie"
+    }
+   },
+   "photos": [
+    {
+     "id": 11066274244,
+     "filename": "lntb30tkwxjh1-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/lntb30tkwxjh1-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11066274245,
+     "filename": "n70tno5504i13-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/n70tno5504i13-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11066274246,
+     "filename": "32vu0v829qyr1-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/32vu0v829qyr1-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11066274247,
+     "filename": "0zi1kjcwo2rk-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/0zi1kjcwo2rk-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11066274248,
+     "filename": "pud17ds8ktkp1-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/pud17ds8ktkp1-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11066274250,
+     "filename": "foe1elvoqrn02-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/foe1elvoqrn02-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11066274251,
+     "filename": "yqh7qlty4l413-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/yqh7qlty4l413-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11066274252,
+     "filename": "ivs54pzoy2z22-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/ivs54pzoy2z22-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11066274253,
+     "filename": "0i76g1aacd8d1-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/0i76g1aacd8d1-PL/image;s={width}x{height}"
+    }
+   ],
+   "partner": null,
+   "category": {
+    "id": 3102,
+    "type": "electronics"
+   },
+   "delivery": {
+    "rock": {
+     "offer_id": null,
+     "active": false,
+     "mode": "NotEligible"
+    }
+   },
+   "safedeal": {
+    "weight": 0,
+    "weight_grams": 0,
+    "status": "unactive",
+    "safedeal_blocked": false,
+    "allowed_quantity": []
+   },
+   "shop": {
+    "subdomain": null
+   },
+   "isGpsrAvailable": true,
+   "offer_type": "offer",
+   "protect_phone": true
+  },
+  {
+   "id": 1078879478,
+   "url": "https://www.olx.pl/d/oferta/macbook-pro-14-apple-m3-pro-a2992-36-gb-1-tb-ssd-macos-silver-fv23-CID99-ID1b0RPU.html",
+   "title": "MacBook Pro 14\" Apple M3 Pro A2992 36 GB / 1 TB SSD macOS Silver Fv23%",
+   "last_refresh_time": "2026-06-10T12:57:12+02:00",
+   "created_time": "2026-06-10T12:54:27+02:00",
+   "valid_to_time": "2026-07-10T12:54:28+02:00",
+   "pushup_time": null,
+   "description": "Przedmiotem sprzedaży jest :MacBook Pro 14\" Apple M3 Pro 11GPU 36 GB / 1 TB SSD macOS<br />\n<br />\nStan techniczny idealny wizualny conajmniej bardzo dobry.Przypomina nowy.<br />\nMatryca posiada jeden punkcik - micro ryska na zewnętrznej części.Przypomina badpixel ale nim nie jest.Nic strasznego ale jest.<br />\nNatomiast reszta obudowa klawiatura niemalże w stanie idealnym.Brak rys gniotków odbić.<br />\n<br />\nFv 23%<br />\nWysyłka kurier dpd lub paczkomat InPost.<br />\n<br />\nSpecyfikacja:<br />\n<br />\n Model MacBooka: A2992 (2023)<br />\n<br />\n Procesor: M3 Pro<br />\n<br />\n Pamięć RAM: 36 GB<br />\n<br />\n Dysk SSD: 1 TB<br />\n<br />\n Matryca: 14.2\" (3024x1964)<br />\n<br />\n Porty: 3x Thunderbolt 4 (USB-C), HDMI 2.1, gniazdo kart SD/SDXC, mini jack 3,5mm, Magsafe 3<br />\n<br />\n Bateria: 116 cykli i 98% Pojemności<br />\n<br />\n Klawiatura: QWERTY UK/PL<br />\n<br />\n Kolor: Silver<br />\n<br />\n W zestawie:<br />\n<br />\n Laptop gotowy do pracy<br />\n<br />\n Oryginalny zasilacz + kabel zasilający<br />\n<br />\n  opakowanie zastępcze<br />\n<br />\nMacBook Pro 14\" Apple M3 Pro A2992 36 GB / 1 TB SSD macOS Silver Stan opakowania zastępcze<br />\nMacBook Pro 14\" Apple M3 Pro A2992 36 GB / 1 TB SSD macOS Silver Układ klawiatury UK/PL (qwerty)<br />\n<br />\nL604564V9(281516)",
+   "promotion": {
+    "highlighted": false,
+    "urgent": false,
+    "top_ad": false,
+    "options": [],
+    "b2c_ad_page": false,
+    "premium_ad_page": false
+   },
+   "params": [
+    {
+     "key": "price",
+     "name": "Cena",
+     "type": "price",
+     "value": {
+      "value": 7495,
+      "type": "price",
+      "arranged": false,
+      "budget": false,
+      "currency": "PLN",
+      "negotiable": false,
+      "converted_value": null,
+      "previous_value": null,
+      "converted_previous_value": null,
+      "converted_currency": null,
+      "label": "7 495 zł",
+      "previous_label": null
+     }
+    },
+    {
+     "key": "state",
+     "name": "Stan",
+     "type": "select",
+     "value": {
+      "key": "used",
+      "label": "Używane"
+     }
+    },
+    {
+     "key": "screendiagonal_laptops",
+     "name": "Przekątna ekranu",
+     "type": "select",
+     "value": {
+      "key": "14-14-9",
+      "label": "14-14,9\""
+     }
+    },
+    {
+     "key": "laptops_series",
+     "name": "Model",
+     "type": "select",
+     "value": {
+      "key": "macbook-pro-m3",
+      "label": "MacBook Pro (M3 / Pro / Max)"
+     }
+    },
+    {
+     "key": "operatingsystem_laptops",
+     "name": "System operacyjny",
+     "type": "select",
+     "value": {
+      "key": "chrome-os",
+      "label": "Chrome OS"
+     }
+    },
+    {
+     "key": "processorseries_laptops",
+     "name": "Seria procesora",
+     "type": "select",
+     "value": {
+      "key": "apple-m3-pro-max",
+      "label": "Apple M3 / Pro / Max"
+     }
+    },
+    {
+     "key": "ramsize_laptops",
+     "name": "Wielkość pamięci RAM",
+     "type": "select",
+     "value": {
+      "key": "64gb",
+      "label": "64GB"
+     }
+    },
+    {
+     "key": "harddisktype_laptops",
+     "name": "Typ dysku twardego",
+     "type": "select",
+     "value": {
+      "key": "ssd",
+      "label": "SSD"
+     }
+    },
+    {
+     "key": "disksize_laptops",
+     "name": "Wielkość dysku",
+     "type": "select",
+     "value": {
+      "key": "1tb-and-more",
+      "label": "1TB"
+     }
+    }
+   ],
+   "key_params": [],
+   "business": true,
+   "user": {
+    "id": 4487651,
+    "created": "2012-08-15T14:12:46+02:00",
+    "other_ads_enabled": true,
+    "name": "mak",
+    "logo": null,
+    "logo_ad_page": null,
+    "social_network_account_type": null,
+    "photo": null,
+    "banner_mobile": "",
+    "banner_desktop": "",
+    "company_name": "",
+    "about": "",
+    "b2c_business_page": false,
+    "is_online": false,
+    "last_seen": "2026-06-10T12:54:28+02:00",
+    "seller_type": null,
+    "uuid": "707e83f8-8ca6-4c76-a0ae-dd9d22f8c1e1"
+   },
+   "status": "active",
+   "contact": {
+    "name": "mak",
+    "phone": true,
+    "chat": true,
+    "negotiation": false,
+    "courier": false
+   },
+   "map": {
+    "zoom": 13,
+    "lat": 52.39895,
+    "lon": 16.89968,
+    "radius": 1,
+    "show_detailed": false
+   },
+   "location": {
+    "city": {
+     "id": 13983,
+     "name": "Poznań",
+     "normalized_name": "poznan"
+    },
+    "district": {
+     "id": 703,
+     "name": "Łazarz"
+    },
+    "region": {
+     "id": 1,
+     "name": "Wielkopolskie",
+     "normalized_name": "wielkopolskie"
+    }
+   },
+   "photos": [
+    {
+     "id": 11071554003,
+     "filename": "rmx9vnklqmii3-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/rmx9vnklqmii3-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11071554004,
+     "filename": "ir96e2pqq5252-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/ir96e2pqq5252-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11071554005,
+     "filename": "1kprucw2wksk1-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/1kprucw2wksk1-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11071554006,
+     "filename": "hcvhd7xnk2wm3-PL",
+     "rotation": 0,
+     "width": 3024,
+     "height": 4032,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/hcvhd7xnk2wm3-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11071554007,
+     "filename": "g5rpktecqsdl-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/g5rpktecqsdl-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11071554008,
+     "filename": "5mtakjhij8l31-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/5mtakjhij8l31-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11071554009,
+     "filename": "ec7bce55oxml1-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/ec7bce55oxml1-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11071554010,
+     "filename": "wqx4gqv8nmwx2-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/wqx4gqv8nmwx2-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11071554011,
+     "filename": "mhqy9npm2imc1-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/mhqy9npm2imc1-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11071554012,
+     "filename": "guqxzlb9kbc11-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/guqxzlb9kbc11-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11071554013,
+     "filename": "sgk20wiuvkt03-PL",
+     "rotation": 0,
+     "width": 4032,
+     "height": 3024,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/sgk20wiuvkt03-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 11071554014,
+     "filename": "934g680t1ye33-PL",
+     "rotation": 0,
+     "width": 3024,
+     "height": 4032,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/934g680t1ye33-PL/image;s={width}x{height}"
+    }
+   ],
+   "partner": null,
+   "category": {
+    "id": 3102,
+    "type": "electronics"
+   },
+   "delivery": {
+    "rock": {
+     "offer_id": null,
+     "active": false,
+     "mode": "NotEligible"
+    }
+   },
+   "safedeal": {
+    "weight": 0,
+    "weight_grams": 0,
+    "status": "unactive",
+    "safedeal_blocked": false,
+    "allowed_quantity": []
+   },
+   "shop": {
+    "subdomain": null
+   },
+   "isGpsrAvailable": true,
+   "offer_type": "offer",
+   "protect_phone": false
+  },
+  {
+   "id": 1074802331,
+   "url": "https://www.olx.pl/d/oferta/macbook-pro-16-a2780-mnw83ze-a-CID99-ID1aJLbt.html",
+   "title": "MacBook Pro 16  A2780  MNW83ZE/A",
+   "last_refresh_time": "2026-06-10T16:13:09+02:00",
+   "created_time": "2026-05-20T16:13:04+02:00",
+   "valid_to_time": "2026-06-19T16:13:04+02:00",
+   "pushup_time": "2026-06-10T16:13:09+02:00",
+   "omnibus_pushup_time": "2026-06-10T16:13:09+02:00",
+   "description": "APPLE MNW83ZE/A  A2780<br />\n<br />\nProdukt z ekspozycji wraz z oryginalnym opakowaniem i kompletem akcesoriów<br />\n<br />\nParagon , Faktura , Gwarancja 24 miesiące<br />\n<br />\nProdukt można obejrzeć i zakupić na miejscu w Naszym sklepie :<br />\n<br />\nMedia Markt<br />\nul. Szwajcarska 14<br />\n61-285 Poznań<br />\nCentrum Handlowe M1<br />\n<br />\n16.2\"/M2Pro/16GB/SSD512GB <br />\n<br />\ngwiezdna szarość<br />\n<br />\nUrządzenie wskazujące: Touchpad<br />\nDysk HDD: nie<br />\nDysk SSD: 512 GB<br />\nLiczba rdzeni: 12<br />\nModel procesora: Apple M2 Pro<br />\nMaksymalna ilość pamięci RAM: 16 GB<br />\nUkład graficzny: Zintegrowany układ graficzny<br />\nNapędy: nie<br />\nKlawiatura: Podświetlana<br />\nZainstalowana pamięć RAM: 16 GB<br />\nRodzaj portów USB: nie<br />\nGniazda rozszerzeń: nie<br />\nDostępne złącza: Czytnik kart pamięci, 1x HDMI, 1x Wyjście słuchawek, 3x Thunderbolt 4, 1x MagSafe 3<br />\nRodzaj powłoki matrycy: Błyszcząca<br />\nTyp matrycy: IPS<br />\nRozdzielczość: 3456 x 2234<br />\nPrzekątna ekranu (cal): 16.2<br />\nPozostałe parametry ekranu: Technologia podświetlania - Diody LED, Odświeżanie - 120 Hz<br />\nEkran dotykowy: nie<br />\nWysokość (cm): 1.68<br />\nGłębokość (cm): 24.81<br />\nSzerokość (cm): 35.57<br />\nWaga (kg): 2.15<br />\nAkumulator: Litowo-Polimerowy<br />\nMaksymalny czas pracy (h): 22<br />\nŁączność bezprzewodowa: Bluetooth, WiFi 802.11 ax<br />\nModem: nie<br />\nKarta sieciowa: tak<br />\nZainstalowany system operacyjny: Mac OS Ventura<br />\nGwarancja: 1 rok<br />\nKolor: Gwiezdna Szarość<br />\nPozostałe parametry: Wbudowane głośniki, Kamera, Obsługiwane formaty: m.in. AAC, MP3, Apple Lossless, FLAC, Dolby Digital, Dolby Digital Plus i Dolby Atmos, Pojemność baterii - 100 Wh<br />\nCertyfikaty i normy: CE<br />\nTechnologie: Wi-Fi, Bluetooth, LED<br />\nLinia: MacBook<br />\nRodzaj: Laptop<br />\nZabezpieczenia: Czytnik linii papilarnych<br />\nSeria: Pro<br />\nWyposażenie: Zasilacz, Przewód z USBC na MagSafe 3",
+   "promotion": {
+    "highlighted": false,
+    "urgent": false,
+    "top_ad": false,
+    "options": [],
+    "b2c_ad_page": true,
+    "premium_ad_page": true
+   },
+   "params": [
+    {
+     "key": "price",
+     "name": "Cena",
+     "type": "price",
+     "value": {
+      "value": 4900,
+      "type": "price",
+      "arranged": false,
+      "budget": false,
+      "currency": "PLN",
+      "negotiable": false,
+      "converted_value": null,
+      "previous_value": null,
+      "converted_previous_value": null,
+      "converted_currency": null,
+      "label": "4 900 zł",
+      "previous_label": null
+     }
+    },
+    {
+     "key": "state",
+     "name": "Stan",
+     "type": "select",
+     "value": {
+      "key": "outlet",
+      "label": "Powystawowe / Outlet"
+     }
+    },
+    {
+     "key": "screendiagonal_laptops",
+     "name": "Przekątna ekranu",
+     "type": "select",
+     "value": {
+      "key": "16-and-more",
+      "label": "16-16,9\""
+     }
+    },
+    {
+     "key": "laptops_series",
+     "name": "Model",
+     "type": "select",
+     "value": {
+      "key": "macbook-pro-m2",
+      "label": "MacBook Pro (M2 / Pro / Max)"
+     }
+    },
+    {
+     "key": "operatingsystem_laptops",
+     "name": "System operacyjny",
+     "type": "select",
+     "value": {
+      "key": "mac-os",
+      "label": "Mac OS"
+     }
+    },
+    {
+     "key": "graphicscardtype_laptops",
+     "name": "Rodzaj karty graficznej",
+     "type": "select",
+     "value": {
+      "key": "integrated",
+      "label": "Zintegrowana"
+     }
+    },
+    {
+     "key": "processorseries_laptops",
+     "name": "Seria procesora",
+     "type": "select",
+     "value": {
+      "key": "apple-m2-pro-max",
+      "label": "Apple M2 / Pro / Max"
+     }
+    },
+    {
+     "key": "ramsize_laptops",
+     "name": "Wielkość pamięci RAM",
+     "type": "select",
+     "value": {
+      "key": "16gb",
+      "label": "16GB"
+     }
+    },
+    {
+     "key": "harddisktype_laptops",
+     "name": "Typ dysku twardego",
+     "type": "select",
+     "value": {
+      "key": "ssd",
+      "label": "SSD"
+     }
+    },
+    {
+     "key": "disksize_laptops",
+     "name": "Wielkość dysku",
+     "type": "select",
+     "value": {
+      "key": "257gb-512gb",
+      "label": "257GB - 512GB"
+     }
+    }
+   ],
+   "key_params": [],
+   "business": true,
+   "user": {
+    "id": 1731474160,
+    "created": "2023-10-09T08:31:24+02:00",
+    "other_ads_enabled": true,
+    "name": "MediaMarkt Poznań Szwajcarska 14  CH M1",
+    "logo": null,
+    "logo_ad_page": "https://img-resizer.prd.01.eu-west-1.eu.olx.org/img-eu-olxpl-production/1344211611_1_261x203_rev002.jpg",
+    "social_network_account_type": null,
+    "photo": null,
+    "banner_mobile": "https://img-resizer.prd.01.eu-west-1.eu.olx.org/img-eu-olxpl-production/1344211611_1_0x0_rev002.jpg",
+    "banner_desktop": "https://img-resizer.prd.01.eu-west-1.eu.olx.org/img-eu-olxpl-production/1344211658_1_1366x210_rev002.jpg",
+    "company_name": "Media Markt Polska Sp. z o.o. Poznań 1",
+    "about": "Uszkodziłeś wyświetlacz w smartfonie lub tablecie? Bateria nie trzyma? Laptop nie chce się włączyć? Zgłoś się do nas bezpośrednio do punktu napraw w Media Markt Poznań\r\nadres Szwajcarska 14, Poznań 61-285",
+    "b2c_business_page": true,
+    "is_online": false,
+    "last_seen": "2026-06-10T20:58:29+02:00",
+    "seller_type": null,
+    "uuid": "d52c07dd-cb3a-4c00-99d7-b8562f248dfc"
+   },
+   "status": "active",
+   "contact": {
+    "name": "MediaMarkt Poznań Szwajcarska 14  CH M1",
+    "phone": true,
+    "chat": true,
+    "negotiation": false,
+    "courier": false
+   },
+   "map": {
+    "zoom": 13,
+    "lat": 52.38814,
+    "lon": 16.98494,
+    "radius": 1,
+    "show_detailed": false
+   },
+   "location": {
+    "city": {
+     "id": 13983,
+     "name": "Poznań",
+     "normalized_name": "poznan"
+    },
+    "district": {
+     "id": 761,
+     "name": "Chartowo"
+    },
+    "region": {
+     "id": 1,
+     "name": "Wielkopolskie",
+     "normalized_name": "wielkopolskie"
+    }
+   },
+   "photos": [
+    {
+     "id": 10988172916,
+     "filename": "6uydpp9gxvvy1-PL",
+     "rotation": 0,
+     "width": 1156,
+     "height": 867,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/6uydpp9gxvvy1-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 10988172917,
+     "filename": "75g1bgr5qja93-PL",
+     "rotation": 0,
+     "width": 1156,
+     "height": 867,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/75g1bgr5qja93-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 10988172918,
+     "filename": "ilwxdpdi2oe53-PL",
+     "rotation": 0,
+     "width": 1156,
+     "height": 867,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/ilwxdpdi2oe53-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 10988172919,
+     "filename": "zt5uom4xx1bd2-PL",
+     "rotation": 90,
+     "width": 867,
+     "height": 1156,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/zt5uom4xx1bd2-PL/image;s={width}x{height};r=270"
+    },
+    {
+     "id": 10988172920,
+     "filename": "65w27csnnl6u3-PL",
+     "rotation": 90,
+     "width": 867,
+     "height": 1156,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/65w27csnnl6u3-PL/image;s={width}x{height};r=270"
+    },
+    {
+     "id": 10988172921,
+     "filename": "rsodjvf9xhgy1-PL",
+     "rotation": 0,
+     "width": 1156,
+     "height": 867,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/rsodjvf9xhgy1-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 10988172922,
+     "filename": "w5nd2u8q3u4y1-PL",
+     "rotation": 0,
+     "width": 1156,
+     "height": 867,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/w5nd2u8q3u4y1-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 10988172923,
+     "filename": "65deuogzlf15-PL",
+     "rotation": 0,
+     "width": 1156,
+     "height": 867,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/65deuogzlf15-PL/image;s={width}x{height}"
+    },
+    {
+     "id": 10988172924,
+     "filename": "3xc3uxbvs0h81-PL",
+     "rotation": 0,
+     "width": 705,
+     "height": 454,
+     "link": "https://ireland.apollo.olxcdn.com:443/v1/files/3xc3uxbvs0h81-PL/image;s={width}x{height}"
+    }
+   ],
+   "partner": null,
+   "category": {
+    "id": 3102,
+    "type": "electronics"
+   },
+   "delivery": {
+    "rock": {
+     "offer_id": null,
+     "active": false,
+     "mode": "NotEligible"
+    }
+   },
+   "safedeal": {
+    "weight": 0,
+    "weight_grams": 0,
+    "status": "unactive",
+    "safedeal_blocked": false,
+    "allowed_quantity": []
+   },
+   "shop": {
+    "subdomain": null
+   },
+   "isGpsrAvailable": true,
+   "offer_type": "offer",
+   "protect_phone": true
+  }
+ ],
+ "metadata": {
+  "total_elements": 1000,
+  "visible_total_count": 8979,
+  "promoted": [
+   0,
+   1,
+   2,
+   13,
+   14,
+   15,
+   26,
+   27,
+   28,
+   39,
+   40,
+   41
+  ]
+ },
+ "links": {
+  "self": {
+   "href": "https://www.olx.pl/api/v1/offers?query=macbook&limit=40"
+  },
+  "next": {
+   "href": "https://www.olx.pl/api/v1/offers?query=macbook&limit=40&offset=40"
+  },
+  "first": {
+   "href": "https://www.olx.pl/api/v1/offers?query=macbook&limit=40&offset=0"
+  }
+ }
+}

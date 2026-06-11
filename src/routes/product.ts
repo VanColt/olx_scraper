@@ -1,24 +1,25 @@
 import { Router, Request, Response } from 'express';
-import { fetchPage } from '../scrapers/fetcher';
-import { parseProductFromApi } from '../scrapers/productParser';
-import { ProductDetail } from '../types';
+import { getProduct } from '../services/olx';
+import { ProductDetail } from '../schemas';
+import { sendError } from '../utils/errors';
 
 const router = Router();
 
-async function fetchProduct(id: string): Promise<ProductDetail | null> {
-  const apiUrl = `https://www.olx.pl/api/v1/offers/${id}/`;
-  const json = await fetchPage(apiUrl, true);
-
-  let data: any;
-  try {
-    data = JSON.parse(json);
-  } catch {
-    console.error('OLX returned non-JSON response for product', id);
-    return null;
-  }
-
-  if (!data?.data?.id) return null;
-  return parseProductFromApi(data.data);
+function productEndpoint(
+  what: string,
+  pick: (product: ProductDetail) => object,
+) {
+  return async (req: Request, res: Response) => {
+    try {
+      const product = await getProduct(req.params.id);
+      if (!product || !product.title) {
+        return res.status(404).json({ error: 'Product not found' });
+      }
+      res.json(pick(product));
+    } catch (err) {
+      sendError(res, err, what);
+    }
+  };
 }
 
 /**
@@ -36,25 +37,23 @@ async function fetchProduct(id: string): Promise<ProductDetail | null> {
  *         description: OLX ad ID (numeric, e.g. 1052407977)
  *     responses:
  *       200:
- *         description: Full product details
+ *         description: Full product details (structured price, ISO dates, full description and photo set)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ProductDetail'
  *       404:
  *         description: Product not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       502:
+ *         description: OLX response no longer matches the expected format
+ *       503:
+ *         description: OLX blocked the request (retryable)
  */
-router.get('/:id', async (req: Request, res: Response) => {
-  try {
-    const product = await fetchProduct(req.params.id);
-    if (!product || !product.title) {
-      return res.status(404).json({ error: 'Product not found' });
-    }
-    res.json(product);
-  } catch (err: any) {
-    console.error('Product error:', err.message);
-    if (err.response?.status === 404) {
-      return res.status(404).json({ error: 'Product not found' });
-    }
-    res.status(500).json({ error: 'Failed to fetch product details', details: err.message });
-  }
-});
+router.get('/:id', productEndpoint('product details', (p) => p));
 
 /**
  * @openapi
@@ -71,20 +70,19 @@ router.get('/:id', async (req: Request, res: Response) => {
  *     responses:
  *       200:
  *         description: Array of full-resolution photo URLs
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id: { type: string }
+ *                 photos:
+ *                   type: array
+ *                   items: { type: string }
  *       404:
  *         description: Product not found
  */
-router.get('/:id/photos', async (req: Request, res: Response) => {
-  try {
-    const product = await fetchProduct(req.params.id);
-    if (!product) return res.status(404).json({ error: 'Product not found' });
-    res.json({ id: product.id, photos: product.photos });
-  } catch (err: any) {
-    console.error('Product photos error:', err.message);
-    if (err.response?.status === 404) return res.status(404).json({ error: 'Product not found' });
-    res.status(500).json({ error: 'Failed to fetch product photos', details: err.message });
-  }
-});
+router.get('/:id/photos', productEndpoint('product photos', (p) => ({ id: p.id, photos: p.photos })));
 
 /**
  * @openapi
@@ -100,21 +98,18 @@ router.get('/:id/photos', async (req: Request, res: Response) => {
  *           type: string
  *     responses:
  *       200:
- *         description: Price and negotiability info
+ *         description: Structured price (numeric value, currency, display string, negotiable flag, previousValue when the price was lowered)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id: { type: string }
+ *                 price: { $ref: '#/components/schemas/Price' }
  *       404:
  *         description: Product not found
  */
-router.get('/:id/price', async (req: Request, res: Response) => {
-  try {
-    const product = await fetchProduct(req.params.id);
-    if (!product) return res.status(404).json({ error: 'Product not found' });
-    res.json({ id: product.id, price: product.price, negotiable: product.negotiable });
-  } catch (err: any) {
-    console.error('Product price error:', err.message);
-    if (err.response?.status === 404) return res.status(404).json({ error: 'Product not found' });
-    res.status(500).json({ error: 'Failed to fetch product price', details: err.message });
-  }
-});
+router.get('/:id/price', productEndpoint('product price', (p) => ({ id: p.id, price: p.price })));
 
 /**
  * @openapi
@@ -130,21 +125,18 @@ router.get('/:id/price', async (req: Request, res: Response) => {
  *           type: string
  *     responses:
  *       200:
- *         description: Seller name and member since date
+ *         description: Seller id (usable with /olx/v1/seller/{id}/listings), name and member-since date
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id: { type: string }
+ *                 seller: { $ref: '#/components/schemas/Seller' }
  *       404:
  *         description: Product not found
  */
-router.get('/:id/seller', async (req: Request, res: Response) => {
-  try {
-    const product = await fetchProduct(req.params.id);
-    if (!product) return res.status(404).json({ error: 'Product not found' });
-    res.json({ id: product.id, seller: product.seller });
-  } catch (err: any) {
-    console.error('Product seller error:', err.message);
-    if (err.response?.status === 404) return res.status(404).json({ error: 'Product not found' });
-    res.status(500).json({ error: 'Failed to fetch seller info', details: err.message });
-  }
-});
+router.get('/:id/seller', productEndpoint('seller info', (p) => ({ id: p.id, seller: p.seller })));
 
 /**
  * @openapi
@@ -160,20 +152,26 @@ router.get('/:id/seller', async (req: Request, res: Response) => {
  *           type: string
  *     responses:
  *       200:
- *         description: Description text and listing parameters
+ *         description: Full description text, normalized condition, and listing parameters
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id: { type: string }
+ *                 description: { type: string }
+ *                 condition: { type: string, nullable: true }
+ *                 parameters:
+ *                   type: object
+ *                   additionalProperties: { type: string }
  *       404:
  *         description: Product not found
  */
-router.get('/:id/description', async (req: Request, res: Response) => {
-  try {
-    const product = await fetchProduct(req.params.id);
-    if (!product) return res.status(404).json({ error: 'Product not found' });
-    res.json({ id: product.id, description: product.description, parameters: product.parameters });
-  } catch (err: any) {
-    console.error('Product description error:', err.message);
-    if (err.response?.status === 404) return res.status(404).json({ error: 'Product not found' });
-    res.status(500).json({ error: 'Failed to fetch product description', details: err.message });
-  }
-});
+router.get('/:id/description', productEndpoint('product description', (p) => ({
+  id: p.id,
+  description: p.description,
+  condition: p.condition,
+  parameters: p.parameters,
+})));
 
 export default router;

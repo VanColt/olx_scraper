@@ -1,16 +1,20 @@
 import axios, { AxiosInstance } from 'axios';
+import axiosRetry from 'axios-retry';
+import Bottleneck from 'bottleneck';
 import { wrapper } from 'axios-cookiejar-support';
 import { CookieJar } from 'tough-cookie';
+import type { Browser } from 'playwright';
 import { getRandomUserAgent } from '../utils/userAgent';
+import { UpstreamBlockedError } from '../utils/errors';
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-function getRandomDelay(): number {
-  const base = parseInt(process.env.REQUEST_DELAY_MS || '2000', 10);
-  return base + Math.floor(Math.random() * 1000);
-}
-
-let lastRequestTime = 0;
+// Serializes all outbound OLX requests; the old timestamp check raced under
+// concurrent requests and let bursts through.
+const limiter = new Bottleneck({
+  maxConcurrent: 1,
+  minTime: parseInt(process.env.REQUEST_DELAY_MS || '2000', 10),
+});
 
 const cookieJar = new CookieJar();
 const client: AxiosInstance = wrapper(axios.create({
@@ -21,14 +25,43 @@ const client: AxiosInstance = wrapper(axios.create({
   validateStatus: (status) => status < 400,
 }));
 
+axiosRetry(client, {
+  retries: 2,
+  retryDelay: (retryCount) => axiosRetry.exponentialDelay(retryCount) + Math.random() * 500,
+  retryCondition: (err) =>
+    axiosRetry.isNetworkOrIdempotentRequestError(err) || err.response?.status === 429,
+});
+
+/**
+ * Detect a real anti-bot challenge. Normal OLX pages contain the literal
+ * string "captchaSiteKey" in their JS config, so a bare "captcha" substring
+ * match false-positives on every page; instead look for actual challenge
+ * vendors (DataDome, Cloudflare) or a small page without OLX's state blob.
+ */
+function looksBlocked(body: string, expectJson: boolean): boolean {
+  if (expectJson) return body.trimStart().startsWith('<');
+
+  const challengeMarkers = [
+    'captcha-delivery.com',
+    'geo.captcha-delivery',
+    'cf-chl',
+    '_cf_chl_opt',
+    'challenge-platform',
+  ];
+  if (challengeMarkers.some((m) => body.includes(m))) return true;
+
+  // Real OLX pages are large and embed the prerendered state; block pages
+  // are small static shells.
+  return !body.includes('__PRERENDERED_STATE__') && body.length < 50_000;
+}
+
 export async function fetchPage(url: string, expectJson = false): Promise<string> {
-  const now = Date.now();
-  const elapsed = now - lastRequestTime;
-  const minDelay = getRandomDelay();
-  if (elapsed < minDelay) {
-    await delay(minDelay - elapsed);
-  }
-  lastRequestTime = Date.now();
+  return limiter.schedule(() => doFetch(url, expectJson));
+}
+
+async function doFetch(url: string, expectJson: boolean): Promise<string> {
+  // Small jitter on top of the limiter's fixed spacing
+  await delay(Math.floor(Math.random() * 500));
 
   const userAgent = getRandomUserAgent();
 
@@ -60,32 +93,58 @@ export async function fetchPage(url: string, expectJson = false): Promise<string
     const response = await client.get(url, { headers });
     const body: string = response.data;
 
-    if (body.includes('captcha') || body.includes('cf-challenge') || (expectJson && body.trimStart().startsWith('<'))) {
-      console.log('Captcha/challenge detected, trying Playwright fallback...');
+    if (looksBlocked(body, expectJson)) {
+      console.error('Challenge detected, trying Playwright fallback...');
       return fetchWithPlaywright(url);
     }
 
     return body;
   } catch (err: any) {
     if (err.response?.status === 403 || err.response?.status === 429) {
-      console.log(`Got ${err.response.status}, trying Playwright fallback...`);
+      console.error(`Got ${err.response.status}, trying Playwright fallback...`);
       return fetchWithPlaywright(url);
     }
     throw err;
   }
 }
 
+// Lazily-launched singleton browser; a fresh chromium.launch() per request
+// costs 1-3s and a memory spike.
+let browserPromise: Promise<Browser> | null = null;
+
+async function getBrowser(): Promise<Browser> {
+  if (!browserPromise) {
+    browserPromise = (async () => {
+      const { chromium } = await import('playwright');
+      const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH || undefined;
+      return chromium.launch({ headless: true, executablePath });
+    })();
+    browserPromise.catch(() => { browserPromise = null; });
+  }
+  return browserPromise;
+}
+
+export async function closeBrowser(): Promise<void> {
+  if (!browserPromise) return;
+  const pending = browserPromise;
+  browserPromise = null;
+  const browser = await pending.catch(() => null);
+  await browser?.close().catch(() => {});
+}
+
 async function fetchWithPlaywright(url: string): Promise<string> {
   if (process.env.PLAYWRIGHT_ENABLED === 'false') {
-    throw new Error('Playwright fallback is disabled and axios request failed');
+    throw new UpstreamBlockedError('Request was challenged and Playwright fallback is disabled');
   }
 
-  const { chromium } = await import('playwright');
-  const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH || undefined;
-  const browser = await chromium.launch({ headless: true, executablePath });
+  const browser = await getBrowser();
+  const context = await browser.newContext({
+    userAgent: getRandomUserAgent(),
+    locale: 'pl-PL',
+    extraHTTPHeaders: { 'Accept-Language': 'pl-PL,pl;q=0.9' },
+  });
   try {
-    const page = await browser.newPage();
-    await page.setExtraHTTPHeaders({ 'Accept-Language': 'pl-PL,pl;q=0.9' });
+    const page = await context.newPage();
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
     await page.waitForTimeout(2000);
 
@@ -97,6 +156,6 @@ async function fetchWithPlaywright(url: string): Promise<string> {
     }
     return await page.content();
   } finally {
-    await browser.close();
+    await context.close();
   }
 }

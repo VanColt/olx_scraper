@@ -1,37 +1,23 @@
 import 'dotenv/config';
 import path from 'path';
 import express from 'express';
-import swaggerJsdoc from 'swagger-jsdoc';
 import { apiReference } from '@scalar/express-api-reference';
+import { buildSwaggerSpec } from './docs/spec';
 import searchRouter from './routes/search';
 import productRouter from './routes/product';
+import productsRouter from './routes/products';
 import categoriesRouter from './routes/categories';
+import locationsRouter from './routes/locations';
+import sellerRouter from './routes/seller';
+import messagingRouter from './routes/messaging';
+import { closeBrowser } from './scrapers/fetcher';
 
 const app = express();
 const port = parseInt(process.env.PORT || '3000', 10);
 
-const swaggerSpec = swaggerJsdoc({
-  definition: {
-    openapi: '3.0.0',
-    info: {
-      title: 'OLX.pl Scraper API',
-      version: '1.0.0',
-      description: '<img src="/olx/v1/logo.png" width="120" style="filter: brightness(0) invert(1);" />\n\nUnofficial API for searching and retrieving listings from OLX.pl',
-      'x-logo': {
-        url: '/olx/v1/logo.png',
-        altText: 'OLX Scraper API',
-      },
-    },
-    servers: [], // populated dynamically per request
-    tags: [
-      { name: 'Search', description: 'Search OLX listings with filters and auto-pagination' },
-      { name: 'Product', description: 'Retrieve full product details by ID' },
-      { name: 'Product — Partial', description: 'Retrieve specific parts of a product listing' },
-      { name: 'Categories', description: 'Browse available OLX categories' },
-    ],
-  },
-  apis: ['./src/routes/*.ts'],
-});
+app.use(express.json());
+
+const swaggerSpec = buildSwaggerSpec();
 
 app.use('/olx/v1', express.static(path.join(__dirname, '..', 'public')));
 app.get('/olx/v1/docs.json', (req, res) => {
@@ -54,9 +40,8 @@ app.use(
     hideClientButton: true,
     hideDarkModeToggle: true,
     showSidebar: true,
-    operationsSorter: 'alpha',
     withDefaultFonts: true,
-    metadata: {
+    metaData: {
       title: 'OLX.pl Scraper API',
     },
     customCss: `
@@ -72,13 +57,47 @@ app.use(
 
 app.use('/olx/v1/search', searchRouter);
 app.use('/olx/v1/product', productRouter);
+app.use('/olx/v1/products', productsRouter);
 app.use('/olx/v1/categories', categoriesRouter);
+app.use('/olx/v1/locations', locationsRouter);
+app.use('/olx/v1/seller', sellerRouter);
+app.use('/olx/v1/messaging', messagingRouter);
+
+/**
+ * @openapi
+ * /health:
+ *   get:
+ *     tags: [Meta]
+ *     summary: Liveness check
+ *     responses:
+ *       200:
+ *         description: Service is up
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status: { type: string, example: ok }
+ *                 uptime: { type: number, example: 123.45 }
+ */
+app.get('/health', (_req, res) => {
+  res.json({ status: 'ok', uptime: process.uptime() });
+});
 
 app.get('/', (_req, res) => {
   res.redirect('/olx/v1/docs');
 });
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`OLX Scraper API running on http://localhost:${port}`);
   console.log(`API docs: http://localhost:${port}/olx/v1/docs`);
 });
+
+async function shutdown() {
+  server.close();
+  await closeBrowser();
+  process.exit(0);
+}
+
+process.on('SIGINT', shutdown);
+process.on('SIGTERM', shutdown);
