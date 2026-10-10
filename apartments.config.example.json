@@ -1,0 +1,19 @@
+{
+  "mode": "rent",
+  "city": "Gdańsk",
+  "distance": 0,
+  "query": "mieszkanie",
+  "minPrice": 2000,
+  "maxPrice": 4000,
+  "minArea": 35,
+  "maxArea": 65,
+  "rooms": [2, 3],
+  "maxAdditionalFees": 1000,
+  "districts": ["Wrzeszcz", "Oliwa", "Przymorze"],
+  "requiredPhrases": [],
+  "excludedPhrases": ["zamiana", "krótkoterminowy"],
+  "privateOnly": false,
+  "searchLimit": 40,
+  "resultLimit": 30,
+  "sort": "newest"
+}
