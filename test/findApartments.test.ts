@@ -31,7 +31,8 @@ const criteria: ApartmentCriteria = {
   minPrice: 2500, maxPrice: 3500, minArea: 40, maxArea: 55,
   rooms: [2], maxAdditionalFees: 800, districts: ['wrzeszcz'],
   requiredPhrases: ['balkon'], excludedPhrases: ['krótkoterminowy'],
-  privateOnly: true, searchLimit: 100, resultLimit: 30, sort: 'newest',
+  privateOnly: true, oneRoomRequiresSeparateKitchen: false,
+  searchLimit: 100, resultLimit: 30, sort: 'newest',
 };
 
 describe('apartment filters', () => {
@@ -68,5 +69,35 @@ describe('apartment filters', () => {
   it('rejects an offer when a requested structured value is missing', () => {
     const withoutArea = { ...product, parameters: { 'Liczba pokoi': '2' } };
     expect(matchesCriteria(withoutArea, criteria)).toBe(false);
+  });
+
+  it('uses rent plus additional fees for the monthly limit', () => {
+    const affordable = { ...product, price: { ...product.price, value: 2600 } };
+    const totalCriteria = { ...criteria, maxTotalMonthlyCost: 3500 };
+    expect(matchesCriteria(affordable, totalCriteria)).toBe(true);
+    expect(matchesCriteria(product, totalCriteria)).toBe(false);
+  });
+
+  it('requires a separate kitchen only for one-room apartments', () => {
+    const oneRoom = {
+      ...product,
+      description: 'Mieszkanie ma 40 m², jeden pokój oraz oddzielną kuchnię. Czynsz administracyjny 500 zł.',
+      price: { ...product.price, value: 2800 },
+      parameters: { ...product.parameters, 'Liczba pokoi': '1 pokój' },
+    };
+    const kitchenCriteria = {
+      ...criteria,
+      rooms: [1, 2],
+      requiredPhrases: [],
+      oneRoomRequiresSeparateKitchen: true,
+      maxTotalMonthlyCost: 3500,
+    };
+    expect(matchesCriteria(oneRoom, kitchenCriteria)).toBe(true);
+    expect(matchesCriteria({ ...oneRoom, description: 'Mieszkanie 40 m²: pokój z aneksem kuchennym.' }, kitchenCriteria)).toBe(false);
+    expect(matchesCriteria({
+      ...oneRoom,
+      description: 'Mieszkanie 40 m², 2-pokojowe z aneksem kuchennym. Czynsz 500 zł.',
+      parameters: { ...oneRoom.parameters, 'Liczba pokoi': '2 pokoje' },
+    }, kitchenCriteria)).toBe(true);
   });
 });

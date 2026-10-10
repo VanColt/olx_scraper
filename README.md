@@ -262,6 +262,9 @@ oryginalne `description`, `parameters` i pomocnicze pole `extracted`. Metraż,
 liczba pokoi i czynsz są porównywane z wartościami znalezionymi w pełnym opisie;
 w razie rozbieżności filtrowanie używa wartości z opisu, a pole `validation`
 pokazuje oba źródła oraz wykryte konflikty.
+`maxTotalMonthlyCost` ogranicza sumę ceny najmu i dodatkowego czynszu, a
+`oneRoomRequiresSeparateKitchen` odrzuca kawalerki i pokoje z samym aneksem.
+Każdy wynik zawiera także bezpośrednie pole `link` do ogłoszenia.
 
 ```bash
 npm run dev        # REST API with tsx

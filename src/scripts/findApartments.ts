@@ -18,6 +18,8 @@ const CriteriaSchema = z.object({
   maxArea: z.number().nonnegative().optional(),
   rooms: z.array(z.number().int().positive()).optional(),
   maxAdditionalFees: z.number().nonnegative().optional(),
+  maxTotalMonthlyCost: z.number().nonnegative().optional(),
+  oneRoomRequiresSeparateKitchen: z.boolean().default(false),
   districts: z.array(z.string().min(1)).default([]),
   requiredPhrases: z.array(z.string().min(1)).default([]),
   excludedPhrases: z.array(z.string().min(1)).default([]),
@@ -30,7 +32,8 @@ const CriteriaSchema = z.object({
 export type ApartmentCriteria = z.infer<typeof CriteriaSchema>;
 
 export interface ApartmentResult extends ProductDetail {
-  extracted: ApartmentFacts;
+  link: string;
+  extracted: ApartmentFacts & { totalMonthlyCost: number | null };
   validation: ApartmentFactsValidation;
 }
 
@@ -119,26 +122,32 @@ function extractDescriptionFacts(product: ProductDetail): ApartmentFacts {
     /\b(\d{1,3}(?:[.,]\d{1,2})?)\s*m(?:2|²)(?![a-z0-9])/,
   ]);
 
-  let rooms = firstNumber(combined, [
+  const roomNumberPatterns = [
     /liczba\s+pokoi[^\d]{0,20}(\d{1,2})\b/,
     /\b(\d{1,2})\s*[- ]?pokoj(?:owe|owy|owa|owym|owego|e|i|ach|u)?\b/,
-  ]);
+  ];
+  const roomWords: Array<[RegExp, number]> = [
+    [/\b(?:kawalerka|jednopokoj\w*|jeden\s+pokoj)\b/, 1],
+    [/\bdwupokoj\w*\b/, 2],
+    [/\btrzypokoj\w*\b/, 3],
+    [/\bczteropokoj\w*\b/, 4],
+    [/\bpieciopokoj\w*\b/, 5],
+  ];
+  let rooms = firstNumber(description, roomNumberPatterns);
   if (rooms === null) {
-    const roomWords: Array<[RegExp, number]> = [
-      [/\b(?:kawalerka|jednopokoj\w*)\b/, 1],
-      [/\bdwupokoj\w*\b/, 2],
-      [/\btrzypokoj\w*\b/, 3],
-      [/\bczteropokoj\w*\b/, 4],
-      [/\bpieciopokoj\w*\b/, 5],
-    ];
-    rooms = roomWords.find(([pattern]) => pattern.test(combined))?.[1] ?? null;
+    rooms = roomWords.find(([pattern]) => pattern.test(description))?.[1] ?? null;
   }
+  if (rooms === null) rooms = firstNumber(title, roomNumberPatterns);
+  if (rooms === null) rooms = roomWords.find(([pattern]) => pattern.test(title))?.[1] ?? null;
 
-  const additionalFees = firstNumber(combined, [
+  let additionalFees = firstNumber(combined, [
     /(?:czynsz\s+administracyjny|oplaty?\s+administracyjne|czynsz\s+do\s+wspolnoty|czynsz\s+dodatkowo)[^\d]{0,40}(\d[\d\s]*(?:[.,]\d{1,2})?)\s*(?:zl|pln)\b/,
     /\b(\d[\d\s]*(?:[.,]\d{1,2})?)\s*(?:zl|pln)\b[^\n]{0,30}(?:czynszu\s+administracyjnego|oplat\s+administracyjnych)\b/,
     /\bczynsz(?!\s+(?:najmu|za\s+najem))[^\d\n]{0,30}(\d[\d\s]*(?:[.,]\d{1,2})?)\s*(?:zl|pln)\b/,
   ]);
+  if (additionalFees === null && /(?:bezczynszow|bez\s+dodatkowych\s+oplat|wszystkie\s+oplaty\s+w\s+cenie|czynsz\s+w\s+cenie)/.test(combined)) {
+    additionalFees = 0;
+  }
 
   return { areaM2, rooms, additionalFees };
 }
@@ -173,6 +182,26 @@ export function extractApartmentFacts(product: ProductDetail): ApartmentFacts {
   };
 }
 
+function hasSeparateKitchen(product: ProductDetail): boolean {
+  const text = normalize([
+    product.title,
+    product.description,
+    ...Object.entries(product.parameters).flat(),
+  ].join(' '));
+  return [
+    /(?:oddzieln|osobn|niezalezn|zamkniet)\w*\s+kuchni\w*/,
+    /kuchni\w*\s+(?:oddzieln|osobn|niezalezn|zamkniet)\w*/,
+    /\b1\s+pokoj\w*[^.\n]{0,80}\b(?:i|oraz)\s+kuchni\w*/,
+    /\bpokoj\w*[^.\n]{0,100}\bkuchni\w*/,
+    /\bkuchni\w*[^.\n]{0,100}\bpokoj\w*/,
+  ].some((pattern) => pattern.test(text));
+}
+
+function totalMonthlyCost(product: ProductDetail, facts: ApartmentFacts): number | null {
+  if (product.price.value === null || facts.additionalFees === null) return null;
+  return product.price.value + facts.additionalFees;
+}
+
 function isInRange(value: number | null, min?: number, max?: number): boolean {
   if (min === undefined && max === undefined) return true;
   if (value === null) return false;
@@ -186,6 +215,10 @@ export function matchesCriteria(product: ProductDetail, criteria: ApartmentCrite
   if (criteria.rooms?.length && (facts.rooms === null || !criteria.rooms.includes(facts.rooms))) return false;
   if (criteria.maxAdditionalFees !== undefined &&
       (facts.additionalFees === null || facts.additionalFees > criteria.maxAdditionalFees)) return false;
+  const totalCost = totalMonthlyCost(product, facts);
+  if (criteria.maxTotalMonthlyCost !== undefined &&
+      (totalCost === null || totalCost > criteria.maxTotalMonthlyCost)) return false;
+  if (facts.rooms === 1 && criteria.oneRoomRequiresSeparateKitchen && !hasSeparateKitchen(product)) return false;
   if (criteria.privateOnly && product.isBusiness) return false;
 
   const haystack = normalize([
@@ -242,13 +275,20 @@ export async function findApartments(rawCriteria: unknown): Promise<ApartmentSea
   const search = await searchListings(criteria.query, searchQuery);
   const details = await fetchDetails(search.results.map((item) => item.id));
   const matches = details.products.filter((product) => matchesCriteria(product, criteria));
+  if (criteria.sort === 'newest') {
+    matches.sort((a, b) => Date.parse(b.postedAt || '') - Date.parse(a.postedAt || ''));
+  }
   const results = matches
     .slice(0, criteria.resultLimit)
-    .map((product) => ({
-      ...product,
-      extracted: extractApartmentFacts(product),
-      validation: validateApartmentFacts(product),
-    }));
+    .map((product) => {
+      const facts = extractApartmentFacts(product);
+      return {
+        ...product,
+        link: product.url,
+        extracted: { ...facts, totalMonthlyCost: totalMonthlyCost(product, facts) },
+        validation: validateApartmentFacts(product),
+      };
+    });
 
   return {
     generatedAt: new Date().toISOString(),
