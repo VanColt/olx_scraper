@@ -258,7 +258,10 @@ plik kryteriów przez `--config sciezka.json`. Pole `mode` przyjmuje `rent` lub
 `sale`; `categoryId` można podać ręcznie, ale zwykle skrypt dobiera kategorię
 automatycznie na podstawie `mode`. Filtry `requiredPhrases`, `excludedPhrases` i `districts`
 przeszukują tytuł, pełny opis, lokalizację oraz parametry oferty. Wynik zawiera
-oryginalne `description`, `parameters` i pomocnicze pole `extracted`.
+oryginalne `description`, `parameters` i pomocnicze pole `extracted`. Metraż,
+liczba pokoi i czynsz są porównywane z wartościami znalezionymi w pełnym opisie;
+w razie rozbieżności filtrowanie używa wartości z opisu, a pole `validation`
+pokazuje oba źródła oraz wykryte konflikty.
 
 ```bash
 npm run dev        # REST API with tsx

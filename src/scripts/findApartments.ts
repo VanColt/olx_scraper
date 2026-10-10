@@ -30,11 +30,25 @@ const CriteriaSchema = z.object({
 export type ApartmentCriteria = z.infer<typeof CriteriaSchema>;
 
 export interface ApartmentResult extends ProductDetail {
-  extracted: {
-    areaM2: number | null;
-    rooms: number | null;
-    additionalFees: number | null;
-  };
+  extracted: ApartmentFacts;
+  validation: ApartmentFactsValidation;
+}
+
+export interface ApartmentFacts {
+  areaM2: number | null;
+  rooms: number | null;
+  additionalFees: number | null;
+}
+
+export interface ApartmentFactsValidation {
+  parameters: ApartmentFacts;
+  description: ApartmentFacts;
+  sources: Record<keyof ApartmentFacts, 'description' | 'parameters' | 'missing'>;
+  discrepancies: Array<{
+    field: keyof ApartmentFacts;
+    parameterValue: number;
+    descriptionValue: number;
+  }>;
 }
 
 export interface ApartmentSearchOutput {
@@ -54,7 +68,8 @@ function normalize(value: string): string {
   return value
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
-    .toLocaleLowerCase('pl-PL');
+    .toLocaleLowerCase('pl-PL')
+    .replace(/ł/g, 'l');
 }
 
 function parsePolishNumber(value: string | undefined): number | null {
@@ -71,7 +86,7 @@ function parameter(product: ProductDetail, names: RegExp[]): string | undefined 
   return entry?.[1];
 }
 
-export function extractApartmentFacts(product: ProductDetail): ApartmentResult['extracted'] {
+function extractParameterFacts(product: ProductDetail): ApartmentFacts {
   const area = parameter(product, [/^powierzchnia$/, /powierzchnia.*mieszkania/]);
   const rooms = parameter(product, [/liczba pokoi/, /^pokoje$/]);
   const fees = parameter(product, [/^czynsz\b/, /oplaty dodatkowe/, /dodatkowe oplaty/]);
@@ -79,6 +94,82 @@ export function extractApartmentFacts(product: ProductDetail): ApartmentResult['
     areaM2: parsePolishNumber(area),
     rooms: parsePolishNumber(rooms),
     additionalFees: parsePolishNumber(fees),
+  };
+}
+
+function firstNumber(text: string, patterns: RegExp[]): number | null {
+  for (const pattern of patterns) {
+    const match = text.match(pattern);
+    if (match?.[1]) return parsePolishNumber(match[1]);
+  }
+  return null;
+}
+
+function extractDescriptionFacts(product: ProductDetail): ApartmentFacts {
+  const title = normalize(product.title);
+  const description = normalize(product.description);
+  // The description is authoritative, so its first explicit value wins;
+  // the title is only a fallback when the description omits the field.
+  const combined = `${description}\n${title}`;
+
+  const areaM2 = firstNumber(combined, [
+    /(?:powierzchnia|metraz)(?:\s+mieszkania)?[^\d]{0,30}(\d{1,3}(?:[.,]\d{1,2})?)\s*m(?:2|²)(?![a-z0-9])/,
+    /\bmieszkanie[^\n\d]{0,50}(\d{1,3}(?:[.,]\d{1,2})?)\s*m(?:2|²)(?![a-z0-9])/,
+    /\b(\d{1,3}(?:[.,]\d{1,2})?)\s*m(?:2|²)(?![a-z0-9])[^\n]{0,40}\bmieszkanie\b/,
+    /\b(\d{1,3}(?:[.,]\d{1,2})?)\s*m(?:2|²)(?![a-z0-9])/,
+  ]);
+
+  let rooms = firstNumber(combined, [
+    /liczba\s+pokoi[^\d]{0,20}(\d{1,2})\b/,
+    /\b(\d{1,2})\s*[- ]?pokoj(?:owe|owy|owa|owym|owego|e|i|ach|u)?\b/,
+  ]);
+  if (rooms === null) {
+    const roomWords: Array<[RegExp, number]> = [
+      [/\b(?:kawalerka|jednopokoj\w*)\b/, 1],
+      [/\bdwupokoj\w*\b/, 2],
+      [/\btrzypokoj\w*\b/, 3],
+      [/\bczteropokoj\w*\b/, 4],
+      [/\bpieciopokoj\w*\b/, 5],
+    ];
+    rooms = roomWords.find(([pattern]) => pattern.test(combined))?.[1] ?? null;
+  }
+
+  const additionalFees = firstNumber(combined, [
+    /(?:czynsz\s+administracyjny|oplaty?\s+administracyjne|czynsz\s+do\s+wspolnoty|czynsz\s+dodatkowo)[^\d]{0,40}(\d[\d\s]*(?:[.,]\d{1,2})?)\s*(?:zl|pln)\b/,
+    /\b(\d[\d\s]*(?:[.,]\d{1,2})?)\s*(?:zl|pln)\b[^\n]{0,30}(?:czynszu\s+administracyjnego|oplat\s+administracyjnych)\b/,
+    /\bczynsz(?!\s+(?:najmu|za\s+najem))[^\d\n]{0,30}(\d[\d\s]*(?:[.,]\d{1,2})?)\s*(?:zl|pln)\b/,
+  ]);
+
+  return { areaM2, rooms, additionalFees };
+}
+
+export function validateApartmentFacts(product: ProductDetail): ApartmentFactsValidation {
+  const parameters = extractParameterFacts(product);
+  const description = extractDescriptionFacts(product);
+  const fields: Array<keyof ApartmentFacts> = ['areaM2', 'rooms', 'additionalFees'];
+  const sources = {} as ApartmentFactsValidation['sources'];
+  const discrepancies: ApartmentFactsValidation['discrepancies'] = [];
+
+  for (const field of fields) {
+    const parameterValue = parameters[field];
+    const descriptionValue = description[field];
+    sources[field] = descriptionValue !== null
+      ? 'description'
+      : parameterValue !== null ? 'parameters' : 'missing';
+    if (parameterValue !== null && descriptionValue !== null && Math.abs(parameterValue - descriptionValue) > 0.01) {
+      discrepancies.push({ field, parameterValue, descriptionValue });
+    }
+  }
+
+  return { parameters, description, sources, discrepancies };
+}
+
+export function extractApartmentFacts(product: ProductDetail): ApartmentFacts {
+  const validation = validateApartmentFacts(product);
+  return {
+    areaM2: validation.description.areaM2 ?? validation.parameters.areaM2,
+    rooms: validation.description.rooms ?? validation.parameters.rooms,
+    additionalFees: validation.description.additionalFees ?? validation.parameters.additionalFees,
   };
 }
 
@@ -153,7 +244,11 @@ export async function findApartments(rawCriteria: unknown): Promise<ApartmentSea
   const matches = details.products.filter((product) => matchesCriteria(product, criteria));
   const results = matches
     .slice(0, criteria.resultLimit)
-    .map((product) => ({ ...product, extracted: extractApartmentFacts(product) }));
+    .map((product) => ({
+      ...product,
+      extracted: extractApartmentFacts(product),
+      validation: validateApartmentFacts(product),
+    }));
 
   return {
     generatedAt: new Date().toISOString(),

@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import { ProductDetail } from '../src/schemas';
-import { ApartmentCriteria, extractApartmentFacts, matchesCriteria } from '../src/scripts/findApartments';
+import {
+  ApartmentCriteria,
+  extractApartmentFacts,
+  matchesCriteria,
+  validateApartmentFacts,
+} from '../src/scripts/findApartments';
 
 const product: ProductDetail = {
   id: '1',
@@ -38,6 +43,26 @@ describe('apartment filters', () => {
     expect(matchesCriteria(product, criteria)).toBe(true);
     expect(matchesCriteria(product, { ...criteria, requiredPhrases: ['winda'] })).toBe(false);
     expect(matchesCriteria(product, { ...criteria, excludedPhrases: ['pośredników'] })).toBe(false);
+  });
+
+  it('prefers explicit values from the description and reports conflicts', () => {
+    const conflicting = {
+      ...product,
+      description: 'Powierzchnia mieszkania: 51 m². Lokal 3-pokojowy. Czynsz administracyjny 900 zł.',
+    };
+
+    expect(extractApartmentFacts(conflicting)).toEqual({ areaM2: 51, rooms: 3, additionalFees: 900 });
+    expect(validateApartmentFacts(conflicting)).toMatchObject({
+      parameters: { areaM2: 48.5, rooms: 2, additionalFees: 750 },
+      description: { areaM2: 51, rooms: 3, additionalFees: 900 },
+      sources: { areaM2: 'description', rooms: 'description', additionalFees: 'description' },
+      discrepancies: [
+        { field: 'areaM2', parameterValue: 48.5, descriptionValue: 51 },
+        { field: 'rooms', parameterValue: 2, descriptionValue: 3 },
+        { field: 'additionalFees', parameterValue: 750, descriptionValue: 900 },
+      ],
+    });
+    expect(matchesCriteria(conflicting, criteria)).toBe(false);
   });
 
   it('rejects an offer when a requested structured value is missing', () => {
