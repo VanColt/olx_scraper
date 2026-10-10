@@ -11,6 +11,7 @@
     "start": "node dist/index.js",
     "dev": "tsx src/index.ts",
     "dev:mcp": "tsx src/mcp/index.ts",
+    "find:apartments": "tsx src/scripts/findApartments.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit"

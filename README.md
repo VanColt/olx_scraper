@@ -242,6 +242,30 @@ curl http://localhost:691/olx/v1/search/macbook
 
 ## Development
 
+### Wyszukiwanie mieszkań w Gdańsku
+
+Gotowy skrypt pobiera pełne szczegóły ofert (w tym cały opis), a następnie
+filtruje je po metrażu, pokojach, czynszu, dzielnicach i frazach z opisu.
+
+```bash
+cp apartments.config.example.json apartments.config.json
+# dostosuj kryteria w apartments.config.json
+npm run find:apartments -- --output wyniki.json
+```
+
+Bez `--output` wynik JSON trafia na standardowe wyjście. Można wskazać inny
+plik kryteriów przez `--config sciezka.json`. Pole `mode` przyjmuje `rent` lub
+`sale`; `categoryId` można podać ręcznie, ale zwykle skrypt dobiera kategorię
+automatycznie na podstawie `mode`. Filtry `requiredPhrases`, `excludedPhrases` i `districts`
+przeszukują tytuł, pełny opis, lokalizację oraz parametry oferty. Wynik zawiera
+oryginalne `description`, `parameters` i pomocnicze pole `extracted`. Metraż,
+liczba pokoi i czynsz są porównywane z wartościami znalezionymi w pełnym opisie;
+w razie rozbieżności filtrowanie używa wartości z opisu, a pole `validation`
+pokazuje oba źródła oraz wykryte konflikty.
+`maxTotalMonthlyCost` ogranicza sumę ceny najmu i dodatkowego czynszu, a
+`oneRoomRequiresSeparateKitchen` odrzuca kawalerki i pokoje z samym aneksem.
+Każdy wynik zawiera także bezpośrednie pole `link` do ogłoszenia.
+
 ```bash
 npm run dev        # REST API with tsx
 npm run dev:mcp    # MCP server on stdio

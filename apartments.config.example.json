@@ -1,0 +1,17 @@
+{
+  "mode": "rent",
+  "city": "Gdańsk",
+  "distance": 0,
+  "query": "mieszkanie",
+  "minArea": 38,
+  "rooms": [1, 2],
+  "maxTotalMonthlyCost": 3500,
+  "oneRoomRequiresSeparateKitchen": true,
+  "districts": ["Wrzeszcz", "Przymorze", "Oliwa", "Strzyża", "Śródmieście"],
+  "requiredPhrases": [],
+  "excludedPhrases": [],
+  "privateOnly": false,
+  "searchLimit": 40,
+  "resultLimit": 20,
+  "sort": "newest"
+}

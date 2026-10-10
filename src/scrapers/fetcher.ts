@@ -17,6 +17,12 @@ const limiter = new Bottleneck({
 });
 
 const cookieJar = new CookieJar();
+// Once OLX rejects the plain HTTP client, avoid repeating the same doomed
+// request for every product. A successful browser response enables direct
+// Playwright mode for the remainder of a typical script run.
+let playwrightOnlyUntil = 0;
+const PLAYWRIGHT_ONLY_MS = 30 * 60 * 1000;
+
 const client: AxiosInstance = wrapper(axios.create({
   jar: cookieJar,
   maxRedirects: 5,
@@ -63,6 +69,10 @@ async function doFetch(url: string, expectJson: boolean): Promise<string> {
   // Small jitter on top of the limiter's fixed spacing
   await delay(Math.floor(Math.random() * 500));
 
+  if (Date.now() < playwrightOnlyUntil) {
+    return fetchWithPlaywright(url, expectJson);
+  }
+
   const userAgent = getRandomUserAgent();
 
   const headers: Record<string, string> = expectJson
@@ -94,15 +104,19 @@ async function doFetch(url: string, expectJson: boolean): Promise<string> {
     const body: string = response.data;
 
     if (looksBlocked(body, expectJson)) {
-      console.error('Challenge detected, trying Playwright fallback...');
-      return fetchWithPlaywright(url);
+      console.error('OLX włączył ochronę antybotową; przełączam tę sesję na Playwright.');
+      const browserBody = await fetchWithPlaywright(url, expectJson);
+      playwrightOnlyUntil = Date.now() + PLAYWRIGHT_ONLY_MS;
+      return browserBody;
     }
 
     return body;
   } catch (err: any) {
     if (err.response?.status === 403 || err.response?.status === 429) {
-      console.error(`Got ${err.response.status}, trying Playwright fallback...`);
-      return fetchWithPlaywright(url);
+      console.error(`OLX odpowiedział ${err.response.status}; przełączam tę sesję na Playwright.`);
+      const browserBody = await fetchWithPlaywright(url, expectJson);
+      playwrightOnlyUntil = Date.now() + PLAYWRIGHT_ONLY_MS;
+      return browserBody;
     }
     throw err;
   }
@@ -132,7 +146,7 @@ export async function closeBrowser(): Promise<void> {
   await browser?.close().catch(() => {});
 }
 
-async function fetchWithPlaywright(url: string): Promise<string> {
+async function fetchWithPlaywright(url: string, expectJson = false): Promise<string> {
   if (process.env.PLAYWRIGHT_ENABLED === 'false') {
     throw new UpstreamBlockedError('Request was challenged and Playwright fallback is disabled');
   }
@@ -146,11 +160,16 @@ async function fetchWithPlaywright(url: string): Promise<string> {
   try {
     const page = await context.newPage();
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
-    await page.waitForTimeout(2000);
 
     // For JSON API URLs, browsers wrap the response in HTML (<pre> tag).
     // Extract the inner text to get the raw JSON.
     const pre = page.locator('body > pre');
+    if (expectJson) {
+      await pre.waitFor({ state: 'attached', timeout: 3000 }).catch(() => {});
+    } else {
+      // HTML state can be populated shortly after DOMContentLoaded.
+      await page.waitForTimeout(2000);
+    }
     if (await pre.count() > 0) {
       return await pre.innerText();
     }
